@@ -21,7 +21,8 @@ button.onclick=function()
 }
 var Inputnam=document.getElementById('name');
 var nameval=Inputnam.value;
-document.getElementById('accept').onclick=function()
+var submit=document.getElementById('accept');
+submit.onclick=function()
 {
     var namarr=['name1','name2','name3','name4'];
     var nlist='';
