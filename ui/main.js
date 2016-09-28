@@ -27,7 +27,7 @@ document.getElementById('accept').onclick=function()
     var list='';
     for(var i=0;i<namarr.length;i++)
     {
-        list+='<li>'+namar[i]+'</li>';
+        list+='<li>'+namarr[i]+'</li>';
     }
     var ol=document.getElementById('list');
     ol.innerHTML=list;
