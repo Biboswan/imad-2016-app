@@ -23,7 +23,7 @@ var Inputnam=document.getElementById('name');
 var name=Inputnam.value;
 document.getElementById('accept').onclick=function()
 {
-    var namarr=[name1,name2,name3,name4];
+    var namarr=['name1','name2','name3','name4'];
     var list='';
     for(var i=0;i<namarr.length;i++)
     {
