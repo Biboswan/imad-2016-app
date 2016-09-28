@@ -22,7 +22,8 @@ app.get('/ui/me1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'me1.png'));
 });
   app.get('/counter', function (req, res) {
-  res.send(counter++.toString());
+      counter=counter+1;
+  res.send(counter.toString());
 });
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
