@@ -32,4 +32,4 @@ document.getElementById('accept').onclick=function()
     var ol=document.getElementById('list');
     ol.innerHTML=list;
     
-}
+};
