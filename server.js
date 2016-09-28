@@ -20,6 +20,7 @@ app.get('/ui/style.css', function (req, res) {
 });
 app.get('/ui/me1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'me1.png'));
+});
   app.get('/counter', function (req, res) {
   res.send(counter++.toString());
 });
