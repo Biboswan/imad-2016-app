@@ -2,7 +2,7 @@
 var button=document.getElementById('press');
 button.onclick=function()
 {
-    var request= new XMLHttpLRequests();
+    var request= new XMLHttpRequests();
     request.onreadystatechange=function()
     {
         if(request.readyState===XMLHttpRequests.DONE)
