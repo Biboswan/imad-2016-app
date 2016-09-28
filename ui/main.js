@@ -1,6 +1,7 @@
 
 var counter=0;
 var button=document.getElementById('press');
+button.innerHTML='PRESS';
 button.oneclick=function()
 {
     counter=counter+1;
