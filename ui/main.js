@@ -1,5 +1,4 @@
 
-var counter=0;
 var button=document.getElementById('press');
 button.onclick=function()
 {
