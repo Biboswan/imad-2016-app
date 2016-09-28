@@ -24,12 +24,12 @@ var name=Inputnam.value;
 document.getElementById('accept').onclick=function()
 {
     var namarr=['name1','name2','name3','name4'];
-    var list='';
+    var nlist='';
     for(var i=0;i<namarr.length;i++)
     {
-        list+='<li>'+namarr[i]+'</li>';
+       nlist+='<li>'+namarr[i]+'</li>';
     }
     var ol=document.getElementById('list');
-    ol.innerHTML=list;
+    ol.innerHTML=nlist;
     
 };
