@@ -14,6 +14,7 @@ button.onclick=function()
         span.innerHTML=counter.toString();
     };
         };
+    };
 
     request.open('GET','http://biboswan.imad.hasura.io/counter',true);
     request.send(null);
