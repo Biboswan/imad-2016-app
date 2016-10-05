@@ -28,6 +28,13 @@ app.get('/ui/me1', function (req, res) {
  app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+namarr=[];
+app.get('/submit-name:name', function (req, res) {
+    var nam =req.params.name;
+    namarr.push(nam);
+     res.send(JSON.stringify(namarr));
+});
+
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
