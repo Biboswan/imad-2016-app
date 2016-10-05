@@ -29,8 +29,8 @@ app.get('/ui/me1', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 var namarr=[];
-app.get('/submit-name/:name', function (req, res) {
-    var nam =req.params.name;
+app.get('/submit-name', function (req, res) {//submit-name?name=xxxx
+    var nam =req.query.name;
     namarr.push(nam);
      res.send(JSON.stringify(namarr));
 });
