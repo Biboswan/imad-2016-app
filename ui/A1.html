@@ -25,11 +25,11 @@
 <ol id="list">
 </ol>
 <script>
-var Inputnam=document.getElementById('name');
-var nameval=Inputnam.value;
 var submit=document.getElementById('accept');
 submit.onclick=function()
 {
+    var Inputnam=document.getElementById('name');
+    var nameval=Inputnam.value;
      var request= new XMLHttpRequest();
      request.open('GET','http://biboswan.imad.hasura-app.io/submit-name'+nameval,true);
      request.send(null);
@@ -44,7 +44,7 @@ submit.onclick=function()
             namarr=JSON.parse(namarr);
     var nlist='';
     for(var i=0;i<namarr.length;i++)
-       nlist+='<li>'+namarr[i]l+'</li>';
+       nlist+='<li>'+namarr[i]+'</li>';
     var ol=document.getElementById('list');
     ol.innerHTML=nlist;
         }
