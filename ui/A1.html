@@ -30,10 +30,20 @@ var nameval=Inputnam.value;
 var submit=document.getElementById('accept');
 submit.onclick=function()
 {
-    var namarr=['name1','name2','name3','name4'];
+     var request= new XMLHttpRequest();
+     request.open('GET','http://biboswan.imad.hasura-app.io/submit-name'+nameval,true);
+     request.send(null);
+     
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+        if(request.status===200)
+        {
+            var namarr[]=JSON.parse(request.responseText);
     var nlist='';
     for(var i=0;i<namarr.length;i++)
-       nlist+='<li>'+namarr[i]+'</li>';
+       nlist+='<li>'+namarr[i]l+'</li>';
     var ol=document.getElementById('list');
     ol.innerHTML=nlist;
     
