@@ -40,7 +40,8 @@ submit.onclick=function()
         {
         if(request.status===200)
         {
-            var namarr=JSON.parse(request.responseText);
+            var namarr=request.responseText;
+            namarr=JSON.parse(namarr);
     var nlist='';
     for(var i=0;i<namarr.length;i++)
        nlist+='<li>'+namarr[i]l+'</li>';
