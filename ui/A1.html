@@ -34,8 +34,6 @@ submit.onclick=function()
     var Inputcom=document.getElementById('com');
     var comval=Inputcom.value;
      var request= new XMLHttpRequest();
-     request.open('GET','http://biboswan.imad.hasura-app.io/submit-comment?comment='+comval,true);
-     request.send(null);
      
     request.onreadystatechange=function()
     {
@@ -52,6 +50,9 @@ submit.onclick=function()
         }
         }
     };
+    request.open('GET','http://biboswan.imad.hasura-app.io/submit-comment?comment='+comval,true);
+     request.send(null);
+     
     
 };
         </script>
