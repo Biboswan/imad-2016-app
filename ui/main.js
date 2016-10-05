@@ -27,9 +27,8 @@ submit.onclick=function()
     var namarr=['name1','name2','name3','name4'];
     var nlist='';
     for(var i=0;i<namarr.length;i++)
-    {
+    
        nlist+='<li>'+namarr[i]+'</li>';
-    }
     var ol=document.getElementById('list');
     ol.innerHTML=nlist;
     
