@@ -3,6 +3,8 @@ var button=document.getElementById('press');
 button.onclick=function()
 {
     var request= new XMLHttpRequest();
+     request.open('GET','http://biboswan.imad.hasura-app.io/counter',true);
+     request.send(null);
     request.onreadystatechange=function()
     {
         if(request.readyState===XMLHttpRequest.DONE)
@@ -16,6 +18,5 @@ button.onclick=function()
         }
     }
 
-    request.open('GET','http://biboswan.imad.hasura-app.io/counter',true);
-    request.send(null);
+   
 }
