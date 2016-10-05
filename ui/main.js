@@ -19,16 +19,3 @@ button.onclick=function()
     request.open('GET','http://biboswan.imad.hasura-app.io/counter',true);
     request.send(null);
 }
-var Inputnam=document.getElementById('name');
-var nameval=Inputnam.value;
-var submit=document.getElementById('accept');
-submit.onclick=function()
-{
-    var namarr=['name1','name2','name3','name4'];
-    var nlist='';
-    for(var i=0;i<namarr.length;i++)
-       nlist+='<li>'+namarr[i]+'</li>';
-    var ol=document.getElementById('list');
-    ol.innerHTML=nlist;
-    
-};
