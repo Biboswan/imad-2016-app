@@ -23,7 +23,7 @@
     I WANT TO BE A HARCORE PROGRAMMER AND START A START-UP COMPANY!!!
 </div>
 <hr/>
-<input type="text" id ="name" placeholder="Enter Name"> </input>
+<input type="text" id ="com" placeholder="Comment"> </input>
 <input type="submit" value="Submit" id="accept"> </input>
 <ol id="list">
 </ol>
@@ -31,10 +31,10 @@
 var submit=document.getElementById('accept');
 submit.onclick=function()
 {
-    var Inputnam=document.getElementById('name');
-    var nameval=Inputnam.value;
+    var Inputcom=document.getElementById('com');
+    var comval=Inputcom.value;
      var request= new XMLHttpRequest();
-     request.open('GET','http://biboswan.imad.hasura-app.io/submit-name?name='+nameval,true);
+     request.open('GET','http://biboswan.imad.hasura-app.io/submit-comment?comment='+comval,true);
      request.send(null);
      
     request.onreadystatechange=function()
@@ -43,10 +43,10 @@ submit.onclick=function()
         {
         if(request.status===200)
         {
-          var  namarr=JSON.parse(request.responseText);
+          var comarr=JSON.parse(request.responseText);
     var nlist='';
-    for(var i=0;i<namarr.length;i++)
-       nlist+='<li>'+namarr[i]+'</li>';
+    for(var i=0;i<comarr.length;i++)
+       nlist+='<li>'+comarr[i]+'</li>';
     var ol=document.getElementById('list');
     ol.innerHTML=nlist;
         }
