@@ -40,8 +40,11 @@ body {
     }
     .follow{
         font: italic 20px cursive;
-         height:10px;
-        
+    }
+    .fbpic
+    {
+         height: 40px;
+    }
         
     }
 
