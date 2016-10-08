@@ -38,4 +38,8 @@ body {
     	border:1px solid black; text-align: center;
     	color:rgba(128, 20, 0, 0.8);
     }
+    .follow{
+        font: italic 30px cursive
+        
+    }
 
