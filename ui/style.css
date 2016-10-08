@@ -39,7 +39,9 @@ body {
     	color:rgba(128, 20, 0, 0.8);
     }
     .follow{
-        font: italic 15px cursive
+        font: italic 20px cursive;
+         height: 40px;
+        
         
     }
 
