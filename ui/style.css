@@ -42,7 +42,7 @@ body {
         font: italic 20px cursive;
     }
     .p+div{
-        font-color:rgba(116, 199, 20, 0.66);
+        color:rgba(116, 199, 20, 0.66);
     }
         
 
