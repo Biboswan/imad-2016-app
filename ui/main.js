@@ -30,7 +30,7 @@ function isadder (id)
         }
     }
     request.open('GET','http://biboswan.imad.hasura-app.io${path}',true);
-     request.send(null);
+     
 };
 
        
