@@ -1,16 +1,16 @@
 
 var path=window.location.pathname;
-if(path==='/ui/home')
+if(path==="/ui/home")
 {
     var button=document.getElementById('press');
     button.onclick=function()
 {
-    isadder('count');
+    isadder("count");
     
 }
 }
 
-isadder('c'); 
+isadder("c"); 
 
 
 
