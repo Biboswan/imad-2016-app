@@ -1,4 +1,22 @@
 
+
+ var request= new XMLHttpRequest();
+     
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+        if(request.status===200)
+        {
+        var x=request.responseText;
+        document.getElementById('c').innerHTML=x.toString();
+        }
+        }
+    }
+    request.open('GET','http://biboswan.imad.hasura-app.io/visitor',true);
+     request.send(null);
+       
+
 var button=document.getElementById('press');
 button.onclick=function()
 {
