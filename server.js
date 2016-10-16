@@ -7,7 +7,7 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'A1.html'));
@@ -34,8 +34,8 @@ app.get('/submit-comment', function (req, res) {//submit-name?name=xxxx
     comarr.push(com);
      res.send(JSON.stringify(comarr));
 });
-app.get('/ui/open', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'open.html'));})
+app.get('/ui/home', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));})
   app.get('/ui/p1', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui','p1.png'));})
 
