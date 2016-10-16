@@ -1,48 +1,42 @@
-function isadder (data)
-{
- var request= new XMLHttpRequest();
-     
+var counter,content,request;
+       request= new XMLHttpRequest();
     request.onreadystatechange=function()
     {
         if(request.readyState===XMLHttpRequest.DONE)
         {
         if(request.status===200)
         {
-        var counter=request.responseText;
-        var content=document.getElementById(data.id)
+           counter=request.responseText;
+           content=document.getElementById('c')
         content.innerHTML=counter.toString();
         }
         }
     }
-   request.open('GET',`http://biboswan.imad.hasura-app.io${data.path}`,true);
-    request.send(null);
-    return;
-}
+     request.open('GET',`http://biboswan.imad.hasura-app.io/visitor',true);
+      request.send(null);
 
-var objarr={
-obj1:{
-    id:'c',
-    path:'/visitor'
-},
-obj2:{
-    id:'count',
-    path:'/counter'
-}
-};
-if(window.location.pathname==='/ui/home')
-{
+
     var button=document.getElementById('press');
     button.onclick=function()
 {
-    isadder(objarr[obj2])
-    
-}
-}
- if(window.location.pathname==='/')
- {
- isadder(objarr[obj1])
- }
-
+     request= new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+        if(request.status===200)
+        {
+         counter=request.responseText;
+         content=document.getElementById('count')
+         content.innerHTML=counter.toString();
+        }
+        }
+    }
+   request.open('GET',`http://biboswan.imad.hasura-app.io/counter',true);
+    request.send(null);
+};
+ 
+ 
 
 
 
