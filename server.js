@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
     c=c+1;
-    document.getElementById('visitor').innerHtml=visitor no.+c;
+    document.getElementById('visitor').innerHtml="visitor no."+c;
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
