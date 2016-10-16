@@ -7,8 +7,6 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
-    x=x+1;
-    document.getElementById('c').innerHTML=x.toString();
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
@@ -27,6 +25,10 @@ app.get('/ui/me1', function (req, res) {
       counter=counter+1;
       
   res.send(counter.toString());
+});
+ app.get('/visitor', function (req, res) {
+      x=x+1;
+  res.send(x.toString());
 });
  app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
