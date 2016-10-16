@@ -2,12 +2,12 @@
 var path=window.location.pathname;
 var objarr={
 obj1:{
-    id='c';
-    path='/visitor';
+    id:'c';
+    path:'/visitor';
 },
 obj2:{
-    id='count';
-    path='/counter';
+    id:'count';
+    path:'/counter';
 }
 };
 if(path==="/ui/home")
