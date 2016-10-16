@@ -34,13 +34,13 @@ if(window.location.pathname==='/ui/home')
     var button=document.getElementById('press');
     button.onclick=function()
 {
-    isadder(objarr[obj1]);
+    isadder(objarr[obj1])
     
 }
 }
  if(window.location.pathname==='/')
  {
- isadder(objarr[obj2]);
+ isadder(objarr[obj2])
  }
 
 
