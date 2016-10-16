@@ -17,7 +17,7 @@ function isadder (data)
    request.open('GET',`http://biboswan.imad.hasura-app.io${data.path}`,true);
     request.send(null);
     return;
-};
+}
 
 var objarr={
 obj1:{
