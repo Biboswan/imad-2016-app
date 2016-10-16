@@ -18,5 +18,4 @@ button.onclick=function()
         }
     }
 
-   
-}
+   }
