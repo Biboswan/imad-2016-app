@@ -1,13 +1,14 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var counter =0,c=0;
+var counter =0,x=0;
 
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
-    c=c+1;
+    x=x+1;
+    document.getElementById('c').innerHTML=x.toString();
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
