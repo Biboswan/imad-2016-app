@@ -1,12 +1,14 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var counter =0;
+var counter =0,c=0;
 
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
+    c=c+1;
+    document.getElementById('visitor').innerHtml=visitor no.+c;
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
@@ -23,6 +25,7 @@ app.get('/ui/me1', function (req, res) {
 });
   app.get('/counter', function (req, res) {
       counter=counter+1;
+      
   res.send(counter.toString());
 });
  app.get('/ui/main', function (req, res) {
