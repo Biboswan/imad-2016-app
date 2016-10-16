@@ -1,6 +1,5 @@
 
 var path=window.location.pathname;
-console.log(path)
 if(path==="/ui/home")
 {
     var button=document.getElementById('press');
@@ -26,12 +25,13 @@ function isadder (id)
         if(request.status===200)
         {
         var counter=request.responseText;
-        document.getElementById(${id};).innerHTML=counter.toString();
+        (document.getElementById(id)).innerHTML=counter.toString();
         }
         }
     }
    request.open('GET',`http://biboswan.imad.hasura-app.io${path}`,true);
     request.send(null);
+    return;
 };
 
        
