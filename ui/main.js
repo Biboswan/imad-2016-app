@@ -39,7 +39,9 @@ if(window.location.pathname==='/ui/home')
 }
 }
  if(window.location.pathname==='/')
+ {
  isadder(objarr[obj2]);
+ }
 
 
 
