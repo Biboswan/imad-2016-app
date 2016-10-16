@@ -8,7 +8,6 @@ app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
     c=c+1;
-    document.getElementById('c').innerHtml=c.toString();
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
 app.get('/ui/A1', function (req, res) {
