@@ -41,6 +41,10 @@ body {
     .follow{
         font: italic 20px cursive;
     }
+    .background1{
+        background-image:url(http://biboswan.imad.hasura-app.io/p1.jpg);
+
+    }
    
         
 
