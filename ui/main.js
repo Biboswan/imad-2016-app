@@ -14,7 +14,7 @@ isadder('c');
 
 
 
-var isadder=function(id)
+function isadder (id)
 {
  var request= new XMLHttpRequest();
      
