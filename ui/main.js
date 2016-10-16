@@ -12,11 +12,9 @@ var counter,content,request;
         }
         }
     }
-     request.open('GET',`http://biboswan.imad.hasura-app.io/visitor',true);
+     request.open('GET',`http://biboswan.imad.hasura-app.io/visitor`,true);
       request.send(null);
-
-
-    var button=document.getElementById('press');
+       var button=document.getElementById('press');
     button.onclick=function()
 {
      request= new XMLHttpRequest();
@@ -32,10 +30,14 @@ var counter,content,request;
         }
         }
     }
-   request.open('GET',`http://biboswan.imad.hasura-app.io/counter',true);
+   request.open('GET',`http://biboswan.imad.hasura-app.io/counter`,true);
     request.send(null);
-};
+    }
+
  
+
+
+   
  
 
 
