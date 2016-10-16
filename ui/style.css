@@ -29,7 +29,7 @@ body {
     {
     	margin-top:20px;
     	font-family:serif;
-    }
+    	 cursor:auto;    }
     .header
     {
     border:1.85px dotted rgba(116, 199, 20, 0.66);
