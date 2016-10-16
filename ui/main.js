@@ -25,7 +25,8 @@ function isadder (id)
         if(request.status===200)
         {
         var counter=request.responseText;
-        (document.getElementById(id)).innerHTML=counter.toString();
+        var content=document.getElementById(id)
+        content.innerHTML=counter.toString();
         }
         }
     }
