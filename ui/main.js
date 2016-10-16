@@ -16,7 +16,6 @@ isadder('c');
 
 function isadder (id)
 {
-     request.open('GET',`http://biboswan.imad.hasura-app.io${path}`,true);
  var request= new XMLHttpRequest();
      
     request.onreadystatechange=function()
@@ -30,7 +29,7 @@ function isadder (id)
         }
         }
     }
-   
+   request.open('GET',`http://biboswan.imad.hasura-app.io${path}`,true);
     request.send(null);
 };
 
