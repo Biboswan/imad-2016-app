@@ -1,5 +1,6 @@
 
 var path=window.location.pathname;
+console.log(path)
 if(path==="/ui/home")
 {
     var button=document.getElementById('press');
