@@ -35,7 +35,7 @@ var counter,content,request;
     }
     draw=function()
     {
-        ellipse(mousex,mousey,3,3);
+        ellipse(mousex,mousey,10,10);
     }
         
     
