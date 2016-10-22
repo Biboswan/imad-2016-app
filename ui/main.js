@@ -34,10 +34,10 @@ var counter,content,request;
     request.send(null);
     } 
     var img=document.getElementById('bibo');
-    var maginleft=0;
+    var marginleft=0;
   function moveRight()
 {
-	maginleft++;
+	marginleft++;
 	img.style.marginLeft=marginleft+'px';
 }
 
