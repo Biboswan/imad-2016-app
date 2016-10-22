@@ -32,8 +32,19 @@ var counter,content,request;
     }
    request.open('GET',`http://biboswan.imad.hasura-app.io/counter`,true);
     request.send(null);
-    }
-  
+    } 
+    var img=document.getElementById('bibo');
+    var maginleft=0;
+  function moveRight()
+{
+	maginleft++;
+	img.style.marginLeft=marginleft+'px';
+}
+
+img.onclick=function()
+{
+	var interval=setInterval(moveRight,20);
+};
         
     
 
