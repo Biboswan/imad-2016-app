@@ -33,11 +33,7 @@ var counter,content,request;
    request.open('GET',`http://biboswan.imad.hasura-app.io/counter`,true);
     request.send(null);
     }
-    draw=function()
-    {
-        ellipse(mousex,mousey,10,10);
-    }
-    draw();
+  
         
     
 
