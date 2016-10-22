@@ -37,6 +37,7 @@ var counter,content,request;
     {
         ellipse(mousex,mousey,10,10);
     }
+    draw();
         
     
 
