@@ -43,7 +43,7 @@ var counter,content,request;
 
 img.onclick=function()
 {
-	var interval=setInterval(moveRight,20);
+	setInterval(moveRight,20);
 };
         
     
