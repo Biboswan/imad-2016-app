@@ -52,6 +52,21 @@ app.get('/img1', function (req, res) {
 app.get('/img2', function (req, res) {
   res.sendFile(path.join(__dirname, '', 'img2.jpg'));
 });
+app.get('/img3',function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'img4.jpg'));
+});
+app.get('/img4',function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'img5.jpg'));
+});
+app.get('/img5',function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'img7.jpg'));
+});
+app.get('/img6',function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'img8.jpg'));
+});
+
+
+
   app.get('/counter', function (req, res) {
       counter=counter+1;
       
