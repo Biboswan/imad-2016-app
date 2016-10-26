@@ -24,6 +24,9 @@ app.get('/ui/me1', function (req, res) {
 app.get('/img1', function (req, res) {
   res.sendFile(path.join(__dirname, '', 'img1.jpg'));
 });
+app.get('/img2', function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'img2.jpg'));
+});
   app.get('/counter', function (req, res) {
       counter=counter+1;
       
