@@ -14,7 +14,15 @@ var config =
 var pool = new Pool(config);
 app.get('/visited', function (req, res) {
     pool.query("UPDATE Visited SET count=count+1",function(err,result){
-    res.end(result.rows[0].count);
+        if(err)
+        {
+            res.status(500).send(err.toString());
+            
+        }
+        else
+        {
+    res.send(result.rows[0].count);
+        }
     });
 });
 
