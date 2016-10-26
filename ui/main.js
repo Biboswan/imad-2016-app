@@ -12,7 +12,7 @@ var counter,content,request;
         }
         }
     }
-     request.open('GET',`http://biboswan.imad.hasura-app.io/visitor`,true);
+     request.open('GET',`http://biboswan.imad.hasura-app.io/visited`,true);
       request.send(null);
        var button=document.getElementById('press');
     button.onclick=function()
