@@ -1,6 +1,21 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var Pool=require('pg').Pool;
+var config =
+{
+    user :'biboswan',
+    database:'biboswan',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+}
+var pool = new Pool(config);
+app.get('/visited', function (req, res) {
+    pool.query('UPDATE "Visited" SET "count"="count"+'1'',function(err,result){
+    res.send(JSON.stringify(result.row[1]));
+    })
+})
 var counter =0,x=0;
 
 var app = express();
@@ -32,10 +47,10 @@ app.get('/img2', function (req, res) {
       
   res.send(counter.toString());
 });
- app.get('/visitor', function (req, res) {
+ /*app.get('/visitor', function (req, res) {
       x=x+1;
   res.send(x.toString());
-});
+});*/
  app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
