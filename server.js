@@ -13,9 +13,9 @@ var config =
 var pool = new Pool(config);
 app.get('/visited', function (req, res) {
     pool.query('UPDATE "Visited" SET "count"="count"+'1'',function(err,result){
-    res.send(JSON.stringify(result.row[1]));
-    })
-})
+    res.send(JSON.stringify(result.rows[1]));
+    });
+});
 var counter =0,x=0;
 
 var app = express();
