@@ -11,21 +11,14 @@ var config =
     password:process.env.DB_PASSWORD
 };
 
-/*var pool = new Pool(config);
+var pool = new Pool(config);
 app.get('/visited', function (req, res) {
-    pool.query("UPDATE Visited SET count=count+1",function(err,result){
-        if(err)
-        {
-            res.status(500).send(err.toString());
-            
-        }
-        else
-        {
-    res.send(result.rows[0].count);
-        }
+    pool.query('UPDATE "Visited" SET count=count+1 RETURNING count',function(err,result){    
+          res.send((result.rows[0].count).toString());
+        
     });
 });
-*/
+
 var counter =0,x=0;
 
 var app = express();
@@ -72,10 +65,11 @@ app.get('/img6',function (req, res) {
       
   res.send(counter.toString());
 });
+/*
 app.get('/visited', function (req, res) {
       x=x+1;
   res.send(x.toString());
-});
+});*/
  app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
