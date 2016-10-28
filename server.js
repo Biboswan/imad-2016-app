@@ -38,10 +38,10 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/me1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'me1.png'));
 });
-app.get('/img1', function (req, res) {
-  res.sendFile(path.join(__dirname, '', 'img1.jpg'));
+app.get('/img:no.', function (req, res) {
+  res.sendFile(path.join(__dirname, '', "'img'+req.params.no.+'.jpg'"));
 });
-app.get('/img2', function (req, res) {
+/*app.get('/img2', function (req, res) {
   res.sendFile(path.join(__dirname, '', 'img2.jpg'));
 });
 app.get('/img3',function (req, res) {
@@ -56,7 +56,7 @@ app.get('/img5',function (req, res) {
 app.get('/img6',function (req, res) {
   res.sendFile(path.join(__dirname, '', 'img8.jpg'));
 });
-
+*/
 
 
   app.get('/counter', function (req, res) {
