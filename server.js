@@ -26,8 +26,8 @@ var counter =0,x=0;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'open.html'));
 });
-app.get('/ui/logoB', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'logoB.jpg'));
+app.get('/logoB', function (req, res) {
+  res.sendFile(path.join(__dirname, '', 'logoB.jpg'));
 });
 app.get('/ui/A1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'A1.html'));
