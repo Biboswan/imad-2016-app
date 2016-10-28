@@ -49,11 +49,7 @@ app.get('/:img', function (req, res) {
       
   res.send(counter.toString());
 });
-/*
-app.get('/visited', function (req, res) {
-      x=x+1;
-  res.send(x.toString());
-});*/
+
  app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
