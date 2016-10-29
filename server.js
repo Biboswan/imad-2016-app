@@ -48,6 +48,9 @@ app.get('/:img', function (req, res) {
     var img=req.params.img;
   res.sendFile(path.join(__dirname, '', img+'.jpg'));
 });
+app.get('/ui/cs-uni', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'cs-uni.html'));
+});
 
 
   app.get('/counter', function (req, res) {
