@@ -6,15 +6,16 @@ var counter,content,request;
         {
         if(request.status===200)
         {
+           counter=request.responseText;
            content=document.getElementById('c')
-        content.innerHTML=request.responseText.toString();
+        content.innerHTML=counter.toString();
         }
         }
     }
      request.open('GET',`http://biboswan.imad.hasura-app.io/visited`,true);
       request.send(null);
        var battery  = navigator.battery;
-         level  = battery.level * 100;
+        var level  = battery.level * 100;
         levelBar = $('.level');
         console.log(levelBar);
 
