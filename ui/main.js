@@ -6,9 +6,8 @@ var counter,content,request;
         {
         if(request.status===200)
         {
-           counter=request.responseText;
            content=document.getElementById('c')
-        content.innerHTML=counter.toString();
+        content.innerHTML=request.responseText.toString();
         }
         }
     }
