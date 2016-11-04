@@ -17,7 +17,7 @@ var counter,content,request;
        var battery  = navigator.battery;
         var level  = battery.level * 100;
         levelBar = $('.level');
-        console.log(levelBar);
+        console.log($(levelBar));
 
     
     var img=document.getElementById('bibo');
