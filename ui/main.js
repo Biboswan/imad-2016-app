@@ -72,6 +72,9 @@ if (battery.charging) {
 if (!battery.charging) {
   levelBar.css('width', level + '%');
 }
+var batt=document.getElementById('battery');
+batt.innerHTML=levelBar
+
 
 
  
