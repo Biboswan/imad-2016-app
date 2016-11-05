@@ -14,12 +14,15 @@ var counter,content,request;
     }
      request.open('GET',`http://biboswan.imad.hasura-app.io/visited`,true);
       request.send(null);
+      
+      
+      
        navigator.getBattery().then(function(battery) {
-  function updateAllBatteryInfo(){
-    updateChargeInfo();
-    updateLevelInfo();
-    updateChargingInfo();
-    updateDischargingInfo();
+         function updateAllBatteryInfo(){
+           updateChargeInfo();
+           updateLevelInfo();
+           updateChargingInfo();
+           updateDischargingInfo();
   }
        
   updateAllBatteryInfo();
@@ -56,6 +59,24 @@ battery.addEventListener('dischargingtimechange', function(){
   }
 
 })
+
+var battery  = navigator.battery;
+level  = battery.level * 100,
+  levelBar = $('.level');
+if (battery.charging) {
+  levelBar.addClass('charging');
+} else if (level > 65) {
+  levelBar.addClass('high');
+} else if (level >= 35 ) {
+  levelBar.addClass('med');
+} else {
+  levelBar.addClass('low');
+}
+if (!battery.charging) {
+  levelBar.css('width', level + '%');
+}
+
+
 
     
     var img=document.getElementById('bibo');
