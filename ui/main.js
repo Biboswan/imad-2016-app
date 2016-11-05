@@ -21,7 +21,7 @@ var counter,content,request;
     updateChargingInfo();
     updateDischargingInfo();
   }
-       })
+       
   updateAllBatteryInfo();
 
   battery.addEventListener('chargingchange', function(){
@@ -47,6 +47,7 @@ var counter,content,request;
     console.log("Battery charging time: "
                  + battery.chargingTime + " seconds");
 }
+})
 
     
     var img=document.getElementById('bibo');
