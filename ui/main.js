@@ -47,6 +47,14 @@ var counter,content,request;
     console.log("Battery charging time: "
                  + battery.chargingTime + " seconds");
 }
+battery.addEventListener('dischargingtimechange', function(){
+    updateDischargingInfo();
+  });
+  function updateDischargingInfo(){
+    console.log("Battery discharging time: "
+                 + battery.dischargingTime + " seconds");
+  }
+
 })
 
     
