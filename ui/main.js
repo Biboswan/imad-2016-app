@@ -60,7 +60,7 @@ battery.addEventListener('dischargingtimechange', function(){
 
 })
 
-var battery  = navigator.battery;
+
 var level  = battery.level * 100;
   levelBar = $('.level');
 if (battery.charging) {
