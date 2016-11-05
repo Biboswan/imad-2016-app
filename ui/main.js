@@ -73,15 +73,7 @@ if (!battery.charging) {
   levelBar.css('width', level + '%');
 }
 var batt=document.getElementById('battery');
-batt.innerHTML=levelBar
-
-
-
- 
-  
-
-
-
+batt.innerHTML=levelBar;
 
     var img=document.getElementById('bibo');
     var marginleft=0;
