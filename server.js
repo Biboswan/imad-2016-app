@@ -5,6 +5,7 @@ var app = express();
 app.use(morgan('combined'));
 var Pool=require('pg').Pool;
 const crypto = require('crypto');
+var BodyParser=require('body-parser');
 var config =
 {
     user :'biboswan',
@@ -28,6 +29,7 @@ app.get('/secret/:pass',function(req,res){
     var pass=req.params.pass;
     res.send(hashed(pass,crypto.randomBytes(100).toString('hex')));
 })
+
 
 var counter =0,x=0;
 
