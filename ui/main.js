@@ -14,7 +14,7 @@ var counter,content,request;
     }
      request.open('GET',`http://biboswan.imad.hasura-app.io/visited`,true);
       request.send(null);
-       var battery  = navigator.battery;
+       var battery  = navigator.battery1;
         var level  = battery.level * 100;
         levelBar = $('.level');
         console.log($(levelBar));
