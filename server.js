@@ -4,6 +4,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 var Pool=require('pg').Pool;
+const crypto = require('crypto');
 var config =
 {
     user :'biboswan',
@@ -20,6 +21,13 @@ app.get('/visited', function (req, res) {
     });
    
 });
+function hashed(input,salt){
+    return (crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512').toString('HEX'));
+}
+app.get('/secret/:pass',function(req,res){
+    var pass=req.params.pass;
+    res.send(hashed(pass,'Tanulovesmanu'));
+})
 
 var counter =0,x=0;
 
