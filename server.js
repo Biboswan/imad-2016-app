@@ -36,7 +36,7 @@ app.post('/creat-user',function(req,res){
     
      pool.query('INSERT into Users(username,password) VALUES ($1,$2),[username,password]',function(err,result){
          
-     }
+     })
     
 })
 
