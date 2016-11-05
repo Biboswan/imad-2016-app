@@ -6,6 +6,7 @@ app.use(morgan('combined'));
 var Pool=require('pg').Pool;
 const crypto = require('crypto');
 var BodyParser=require('body-parser');
+app.use(BodyParser.json());
 var config =
 {
     user :'biboswan',
@@ -28,15 +29,14 @@ function hashed(input,salt){
 app.get('/secret/:pass',function(req,res){
     var pass=req.params.pass;
     res.send(hashed(pass,crypto.randomBytes(100).toString('hex')));
-})
-app.post('/creat-user',function(req,res){
+});
+app.post('/create-user',function(req,res){
     var username=req.body.username;
     var password=req.body.password;
-    var salt=crypto.randomBytes(128).toString('hex');
-    
-     pool.query('INSERT into Users(username,password) VALUES ($1,$2),[username,password]',function(err,result){
+    var hashpass=hashed(password,crypto.randomBytes(128).toString('hex'));
+    pool.query('INSERT into Users(username,password) VALUES ($1,$2),[username,hashpass]',function(err,result){
          
-     })
+     });
     
 })
 
@@ -90,9 +90,9 @@ app.get('/submit-comment', function (req, res) {//submit-name?name=xxxx
      res.send(JSON.stringify(comarr));
 });
 app.get('/ui/home', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));})
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));});
   app.get('/ui/p1', function (req, res) {
-     res.sendFile(path.join(__dirname, 'ui','p1.png'));})
+     res.sendFile(path.join(__dirname, 'ui','p1.png'));});
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
