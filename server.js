@@ -26,7 +26,7 @@ function hashed(input,salt){
 }
 app.get('/secret/:pass',function(req,res){
     var pass=req.params.pass;
-    res.send(hashed(pass,'Tanulovesmanu'));
+    res.send(hashed(pass,'crypto.randomBytes(100)'));
 })
 
 var counter =0,x=0;
