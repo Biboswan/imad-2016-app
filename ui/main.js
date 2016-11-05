@@ -69,6 +69,9 @@ if (battery.charging) {
 } else {
   levelBar.addClass('low');
 }
+if (!battery.charging) {
+  levelBar.css('width', level + '%');
+}
 
 
  
