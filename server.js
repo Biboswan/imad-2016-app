@@ -29,6 +29,13 @@ app.get('/secret/:pass',function(req,res){
     var pass=req.params.pass;
     res.send(hashed(pass,crypto.randomBytes(100).toString('hex')));
 })
+app.post('/creat-user',function(req,res){
+     pool.query('INSERT into "user"(username,password) VALUES ($1,$2),[username,password]',function(err,result){
+         
+     }
+    
+})
+
 
 
 var counter =0,x=0;
