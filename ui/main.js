@@ -59,8 +59,11 @@ battery.addEventListener('dischargingtimechange', function(){
 var batt=document.getElementById('battery');
 function battstatus()
 {
+    navigator.getBattery().then(function(battery)
+    {
 batt.style.width=battery.level*70+'px';
 batt.innerHTML=battery.level+'';
+})
 }
 draw=battstatus();
 
