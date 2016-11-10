@@ -62,7 +62,7 @@ function battstatus()
     navigator.getBattery().then(function(battery)
     {
 batt.style.width=battery.level*70+'px';
-batt.innerHTML=battery.level+'';
+batt.innerHTML=battery.level*100+'%';
 })
 }
 draw=battstatus();
