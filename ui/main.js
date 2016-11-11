@@ -65,7 +65,7 @@ batt.style.width=battery.level*70+'px';
 batt.innerHTML=battery.level*100+'%';
 })
 }
-draw=battstatus();
+var interval=setInterval(battstatus,1000);
 
 
 
