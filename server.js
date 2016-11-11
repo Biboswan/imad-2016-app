@@ -7,6 +7,8 @@ var Pool=require('pg').Pool;
 const crypto = require('crypto');
 var BodyParser=require('body-parser');
 app.use(BodyParser.json());
+var session =require('express-session');
+app.use(session({secret:'hucker',cookie:{maxAge:1000*60*60*24*30}}));
 var config =
 {
     user :'biboswan',
@@ -24,7 +26,8 @@ app.get('/visited', function (req, res) {
    
 });
 function hashed(input,salt){
-    return (crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512').toString('HEX'));
+    var hash = crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512').toString('HEX');
+    return ["pbkd","10000",salt,hash].join('&');
 }
 app.get('/secret/:pass',function(req,res){
     var pass=req.params.pass;
