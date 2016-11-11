@@ -8,7 +8,7 @@ const crypto = require('crypto');
 var BodyParser=require('body-parser');
 app.use(BodyParser.json());
 var session =require('express-session');
-app.use(session({secret:'hucker',cookie:{maxAge:1000*60*60*24*30}}));
+app.use(session({secret:'someRandomSecretValue',cookie:{maxAge:1000*60*60*24*30}}));
 var config =
 {
     user :'biboswan',
