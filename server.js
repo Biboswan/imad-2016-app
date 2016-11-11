@@ -76,7 +76,9 @@ app.get('/:img', function (req, res) {
 app.get('/ui/cs-uni', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'cs-uni.html'));
 });
-
+app.get('/ui/acc-form', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'acc_form.html'));
+});
 
   app.get('/counter', function (req, res) {
       counter=counter+1;
