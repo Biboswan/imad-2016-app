@@ -1,4 +1,3 @@
-var interval=setInterval(battstatus,1000);
 
             var submit=document.getElementById('register');
             submit.onclick=function(){
