@@ -11,6 +11,7 @@
                   alert(request.responseText);
               } else {
                   alert('Could not create the account');
+                   alert(request.responseText);
                   submit.value = 'Submit';
               }
           }
