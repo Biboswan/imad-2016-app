@@ -67,7 +67,8 @@ batt.innerHTML=battery.level*100+'%';
 }
 var interval=setInterval(battstatus,1000);
 
-var submit=document.getElementById('register').onclick=function(){
+            var submit=document.getElementById('register');
+            submit.onclick=function(){
             var request = new XMLHttpRequest();
             request.onreadystatechange = function () {
             if (request.readyState === XMLHttpRequest.DONE) {
