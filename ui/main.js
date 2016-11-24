@@ -69,8 +69,8 @@ var interval=setInterval(battstatus,1000);
 
 var submit=document.getElementById('register').onclick=function(){
             var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
+            request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
           
               if (request.status === 200) {
                   alert('Account created successfully');
@@ -92,7 +92,7 @@ var submit=document.getElementById('register').onclick=function(){
                   request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex}));  
                   submit.value = 'Submiting...';
     
-    };
+          };
 
                   
             
