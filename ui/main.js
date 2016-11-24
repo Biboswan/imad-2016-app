@@ -1,5 +1,5 @@
 
-       navigator.getBattery().then(function(battery) {
+   /*    navigator.getBattery().then(function(battery) {
          function updateAllBatteryInfo(){
            updateChargeInfo();
            updateLevelInfo();
@@ -50,7 +50,7 @@ batt.style.width=battery.level*70+'px';
 batt.innerHTML=battery.level*100+'%';
 })
 }
-var interval=setInterval(battstatus,1000);
+var interval=setInterval(battstatus,1000);*/
 var submit=document.getElementById('login-btn');
           submit.onclick = function(){
             var request = new XMLHttpRequest();
