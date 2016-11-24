@@ -42,12 +42,14 @@ app.post('/create-user',function(req,res){
     var sex = req.body.sex;
     
     var hashpass=hashed(password,crypto.randomBytes(128).toString('hex'));
-    pool.query('INSERT into Users(username,password,full name,D.O.B,emailid,sex) VALUES ($1,$2,$3,$4,$5,$6,$7),[username,hashpass,name,dob,email,sex]',function(err,result){
+    pool.query('INSERT into Users(username,password,full name,D.O.B,emailid,sex) VALUES ($1,$2,$3,$4,$5,$6,$7),[username,hashpass,name,dob,email,sex]',function(err,result){ if (err) {
+          res.status(500).send(err.toString());
+      } else {
          
-     });
-     res.send('username successfully created :'+username);
-    
-})
+     res.send('Now u can login :'+username);
+ }
+});
+});
 
 
 
@@ -92,6 +94,9 @@ app.get('/ui/acc-form', function (req, res) {
 });
 
  app.get('/ui/acc', function (req, res) {
+     res.sendFile(path.join(__dirname, 'ui', 'acc.js'));
+});
+app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'acc.js'));
 });
 var comarr=[];
