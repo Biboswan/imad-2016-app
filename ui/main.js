@@ -70,7 +70,7 @@ var submit=document.getElementById('login-btn');
                   alert('Something went wrong on the server');
                   submit.innerHTML = 'Login';
               }
-             loadLogin();        
+             //loadLogin();        
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         request.open('POST', '/login', true);
@@ -82,7 +82,7 @@ var submit=document.getElementById('login-btn');
 
           };
 };
-function loadLogin () {
+//function loadLogin () {
     // Check if the user is already logged in
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
