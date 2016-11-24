@@ -16,10 +16,10 @@
                   
                   var username = document.getElementById('username').value;
                   var password = document.getElementById('pwd').value;
-                  var name = document.getElementById('name');
-                  var dob = document.getElementById('dob');
-                  var email = document.getElementById('email');
-                  var sex = document.getElementById('sex');
+                  var name = document.getElementById('name').value;
+                  var dob = document.getElementById('dob').value;
+                  var email = document.getElementById('email').value;
+                  var sex = document.getElementById('sex').value;
                   request.open('POST', '/create-user', true);
                   request.setRequestHeader('Content-Type', 'application/json');
                   request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex}));  
