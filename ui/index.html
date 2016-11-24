@@ -35,8 +35,27 @@
       </ul>
 </li>
 <li style="float:right"><a href="/ui/acc-form" class="btn btn-info">Create Account</a></li>
+<li style="float:right"><button data-toggle="modal" data-target="#myModal" class="btn btn-info">Login</button></li>
 </ul>
 </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <div class="modal-content">
+       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <input id="username" type="text"  placeholder="username">
+          <input id="password" type="password" placeholder="password">
+      </div>
+      <div class="modal-footer center">
+        <button id="login" type="button" class="btn btn-success">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+          
+          
         <div class="background2 container-fluid">
         <div class="center text-big" >
          Hi! I am Biboswan Roy
