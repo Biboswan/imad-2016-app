@@ -8,8 +8,10 @@
               if (request.status === 200) {
                   alert('Account created successfully');
                   submit.value = 'Submited!';
+                  alert(request.responseText);
               } else {
                   alert('Could not create the account');
+                  submit.value = 'Submit';
               }
           }
         };
@@ -24,6 +26,7 @@
                   request.setRequestHeader('Content-Type', 'application/json');
                   request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex}));  
                   submit.value = 'Submiting...';
+                   
     
           };
 
