@@ -75,15 +75,15 @@ var submit=document.getElementById('login-btn');
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
-                  submit.value = 'Logged!';
+                  submit.innerHTML = 'Logged!';
               } else if (request.status === 403) {
-                  submit.value = 'Invalid credentials. Try again?';
+                  submit.innerHTML = 'Invalid credentials. Try again?';
               } else if (request.status === 500) {
                   alert('Something went wrong on the server');
-                  submit.value = 'Login';
+                  submit.innerHTML = 'Login';
               } else {
                   alert('Something went wrong on the server');
-                  submit.value = 'Login';
+                  submit.innerHTML = 'Login';
               }
              // loadLogin();        
         var username = document.getElementById('username').value;
