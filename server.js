@@ -97,7 +97,7 @@ app.get('/ui/acc-form', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'acc.js'));
 });
 app.get('/ui/main', function (req, res) {
-     res.sendFile(path.join(__dirname, 'ui', 'acc.js'));
+     res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 var comarr=[];
 app.get('/submit-comment', function (req, res) {//submit-name?name=xxxx
