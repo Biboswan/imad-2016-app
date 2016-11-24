@@ -36,8 +36,13 @@ app.get('/secret/:pass',function(req,res){
 app.post('/create-user',function(req,res){
     var username=req.body.username;
     var password=req.body.password;
+    var name = req.body.name;
+    var dob = req.body.dob;
+    var email =req.body.email;
+    var sex = req.body.sex;
+    
     var hashpass=hashed(password,crypto.randomBytes(128).toString('hex'));
-    pool.query('INSERT into Users(username,password) VALUES ($1,$2),[username,hashpass]',function(err,result){
+    pool.query('INSERT into Users(username,password,full name,D.O.B,emailid,sex) VALUES ($1,$2,$3,$4,$5,$6,$7),[username,hashpass,name,dob,email,sex]',function(err,result){
          
      });
      res.send('username successfully created :'+username);
