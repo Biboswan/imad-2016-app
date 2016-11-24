@@ -33,8 +33,10 @@
                   request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex.value}));  
                   submit.value = 'Submiting...';
                    
-    
           };
+          document.getElementById('back').onclick= function(){
+              history.back();
+          }
 
 
 
