@@ -56,31 +56,7 @@
         <div class="col-sm-3">
   <input type="radio" name="gender" value="other"> Other</div>
     </div>
-    <div class="form-group" id="Ppic" enctype="multipart/form-data" method="post" action="upload.php">
-      <label for="image_file" class="control-label col-sm-2">Select pic(optional)</label>
-        <div class="col-sm-3"><input type="file" name="image_file" id="image_file" onchange="fileSelected()"> <span><small>(file size upto 65KB)</small></span><br>
-         <div id="error">You should select valid image files only!</div>
-         <div id="warnsize">Your file is very big. We can't accept it. Please select more small file</div>
-         <div id="filesize"></div>
-         <div id="filedim"></div>
-        <input type="button" value="Upload" onclick=""/>
-        <div id="fileinfo">
-	    <div id="filename"></div>
-	    <div id="filetype"></div>
-	   
-        <div id="error2">An error occurred while uploading the file</div>
-         <div id="abort">The upload has been canceled by the user or the browser dropped the connection</div>
-         
-         	<div id="progress_info">
-            <div id="progress"></div>
-            <div id="progress_percent">&nbsp;</div>
-	    </div>
-	    <div id="upload_response"></div>
-	    <img id="preview" style="float:right"/>
-
-        </div>
-      </div>
-    </div>
+   
     <div class="form-group">
       <div class="center">
         <input type="submit" class="btn btn-success" value="SUBMIT">
@@ -88,28 +64,6 @@
     </div>
   </form>
   </div>
-  <script>
-  var Maxsize=65000 ,oFile='';
-    function fileSelected() {
-	document.getElementById('upload_response').style.display = 'none';
-	document.getElementById('error').style.display = 'none';
-    document.getElementById('error2').style.display = 'none';
-	document.getElementById('abort').style.display = 'none';
-	document.getElementById('warnsize').style.display = 'none';
-	document.getElementById('filesize').innerHTML='';
-	oFile = document.getElementById('image_file').files[0];
-    var rFilter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
-	if (! rFilter.test(oFile.type)) {
-	document.getElementById('error').style.display = 'block';
-	return;
-	}
-	if (oFile.size > Maxsize) {
-	document.getElementById('warnsize').style.display = 'block';
-    return;
-    }
-    document.getElementById('filesize').innerHTML='filesize:'+oFile.size/1000+'KB';
-}
-</script>
 </body>
 </html>
 
