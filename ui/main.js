@@ -87,10 +87,15 @@ var interval=setInterval(battstatus,1000);
                   var name = document.getElementById('name');
                   var dob = document.getElementById('dob');
                   var email = document.getElementById('email');
-                  var sex = document.getElementById('sex');
+                  var i,sex;
+                  for(i=1;i<=3;i++)
+                  {
+                  sex = document.getElementById('sex'+i);
+                  if(sex.checked===true){break;}
+                  }
                   request.open('POST', '/create-user', true);
                   request.setRequestHeader('Content-Type', 'application/json');
-                  request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex}));  
+                  request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex.value}));  
                   submit.value = 'Submiting...';
     
           };
