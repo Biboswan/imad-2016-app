@@ -54,7 +54,7 @@ var interval=setInterval(battstatus,1000);
 var submit=document.getElementById('login-btn');
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
-        request.onreadystatechange = function () {
+        request2.onreadystatechange = function () {
           if (request2.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
