@@ -53,7 +53,7 @@ function battstatus()
 var interval=setInterval(battstatus,1000);
 var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</a>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info">Login</a>';
-var logoutHTML='<a class="btn btn-info">Logout</a>';
+var logoutHTML='<a class="btn btn-info" onclick=Logout()>Logout</a>';
 var submit=document.getElementById('login-btn');
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -84,6 +84,7 @@ var submit=document.getElementById('login-btn');
         submit.innerHTML = 'Logging in...';
         
 };
+
 function loadLogin () {
     // Check if the user is already logged in
     var request = new XMLHttpRequest();
@@ -116,6 +117,21 @@ function loadUnknownUser()
      document.getElementById('create_acc').innerHTML=create_accHTML;
      document.getElementById('log').innerHTML=loginHTML;
      
+}
+function Logout()
+{
+     var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            {
+                loadUnknownUser();
+            }
+        }
+    };
+    request.open('GET', '/logout', true);
+    request.send(null);
+    
 }
          
   loadLogin ();
