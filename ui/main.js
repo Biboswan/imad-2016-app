@@ -142,6 +142,7 @@ function Logout()
 }
 function commSubmit(){
     var commtext=document.getElementById('comment_text').value;
+    console.log('check');
     var date=new Date().toDateString()+', '+new Date().toLocaleTimeString();
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
