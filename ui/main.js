@@ -141,20 +141,35 @@ function Logout()
 }
 function commSubmit(){
     var commtext=document.getElementById('comment_text').value;
+    var date=new Date().toDateString()+', '+new Date().toLocaleTimeString();
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
             {
-                
+             AppendComment(this.responseText,date,commtext);   
             }
         }
     };
         request.open('POST', '/submit-comment', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()",commtext:commtext}));
+        request.send(JSON.stringify({ pathname:window.location.path,date:date,commtext:commtext}));
     
 }
+function AppendComment(username,date,commtext)
+{
+   var commentsHTML=` <div class="media">
+           <div class="media-left">
+           <div class="media-body">
+               <h4 class="media-heading">${username}<small><i>Posted on ${date}</i></small></h4>
+               <p>${commtext}</p>
+	   </div>
+	   </div>
+	   </div>`;
+	   var commentlist = document.getElementById('comment-list');
+       commentlist.insertBefore(commentsHTML,list.childNodes[2]);
+}
+    
          
   loadLogin ();
   
