@@ -48,7 +48,7 @@ function battstatus()
         var batt=document.getElementById('battery');
         batt.style.width=battery.level*70+'px';
         batt.innerHTML=battery.level*100+'%';
-})
+});
 }
 var interval=setInterval(battstatus,1000);
 var submit=document.getElementById('login-btn');
@@ -59,10 +59,10 @@ var submit=document.getElementById('login-btn');
               // Take some action
               if (request2.status === 200) {
                   submit.innerHTML = 'Logged!';
-                    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi'+username+'</span>'; 
+                    loadLoggedInUser(username);
               } else if (request2.status === 403) {
                  alert('Invalid credentials. Try again?');
-                  submit.innerHTML = 'Login'
+                  submit.innerHTML = 'Login';
               } else if (request2.status === 500) {
                   alert('Something went wrong on the server');
                   submit.innerHTML = 'Login';
@@ -72,7 +72,7 @@ var submit=document.getElementById('login-btn');
               }
           }
         };
-             loadLogin();        
+                
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         request2.open('POST', '/login', true);
@@ -91,7 +91,7 @@ function loadLogin () {
                 console.log('checking');
                 loadLoggedInUser(this.responseText);
             } else {
-              // loadLoginForm();
+              
             }
         }
     };
@@ -105,6 +105,6 @@ function loadLoggedInUser(username)
       
 }
          
-      
+  loadLogin ();    
       
     
