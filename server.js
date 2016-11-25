@@ -149,13 +149,24 @@ app.get('/ui/acc-form', function (req, res) {
 app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
-var comarr=[];
-app.post('/submit-comment', function (req, res) {//submit-name?name=xxxx
+app.post('/submit-comment', function (req, res) {
     var path = req.body.pathname;
     var date = req.body.date;
     var commtext = req.body.commtext;
-    comarr.push(com);
-     res.send(JSON.stringify(comarr));
+    var username='';
+    pool.query('SELECT * FROM "Users" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+           if (err) {
+              res.status(500).send(err.toString());
+           } else {
+             username=result.rows[0].username);    
+           }
+       });
+    pool.query('INSERT into path(username,date,comment) VALUES($1,$2,$3)',[username,date,commtext],function(err,result){ if (err) {
+          res.status(500).send(err.toString());
+      } else {
+     res.send("comment submitted");
+ }
+});
 });
 app.get('/ui/home', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));});
