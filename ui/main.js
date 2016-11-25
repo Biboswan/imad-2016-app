@@ -104,17 +104,20 @@ function loadLogin () {
 }
 function loadLoggedInUser(username)
 {
+    document.getElementById('create_acc').innerHTML='';
+    document.getElementById('log').innerHTML='';
     document.getElementById('logout').innerHTML=logoutHTML; 
-    document.getElementById('user_icon').innerHTML=user_iconHTML;
+    document.getElementById('user_icon').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
 }
 function loadUnknownUser()
 {
+     document.getElementById('logout').innerHTML='';
+     document.getElementById('user_icon').innerHTML='';
      document.getElementById('create_acc').innerHTML=create_accHTML;
      document.getElementById('log').innerHTML=loginHTML;
      
 }
          
-  loadLogin ();  
-  var user_iconHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
+  loadLogin ();
       
     
