@@ -41,7 +41,8 @@ app.post('/create-user',function(req,res){
     var dob = req.body.dob;
     var email =req.body.email;
     var sex = req.body.sex;
-    
+    if(username===null||password===null||email===null)
+    res.status(403).send("Invalid credentials entered");
     var hashpass=hashed(password,crypto.randomBytes(128).toString('hex'));
     pool.query('INSERT into "Users" (username,password,"full name","D.O.B",emailid,sex) VALUES ($1,$2,$3,$4,$5,$6)',[username,hashpass,name,dob,email,sex],function(err,result){ if (err) {
           res.status(500).send(err.toString());
