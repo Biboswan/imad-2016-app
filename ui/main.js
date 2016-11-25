@@ -40,7 +40,7 @@ battery.addEventListener('dischargingtimechange', function(){
                  + battery.dischargingTime + " seconds");
   }
 
-})
+});
 function battstatus()
 {
     navigator.getBattery().then(function(battery)
@@ -55,6 +55,11 @@ var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info">Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()>Logout</a>';
 var submit=document.getElementById('login-btn');
+var commHTML =`
+	        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+	        <br/>
+	        <input type="submit" id="com-sub" value="comment" onclick=commSubmit()/>
+	        <br/>`;
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
         request2.onreadystatechange = function () {
@@ -98,6 +103,7 @@ function loadLogin () {
                  loadUnknownUser();
             }
         }
+        
     };
     
     request.open('GET', '/check-login', true);
@@ -109,6 +115,7 @@ function loadLoggedInUser(username)
     document.getElementById('log').innerHTML='';
     document.getElementById('logout').innerHTML=logoutHTML; 
     document.getElementById('user_icon').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
+    document.getElementById('comm').innerHTML=comm;
 }
 function loadUnknownUser()
 {
@@ -133,7 +140,23 @@ function Logout()
     request.send(null);
     
 }
+function commSubmit(){
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            {
+                
+            }
+        }
+    };
+        request.open('POST', '/', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({username: username, password: password}));
+    
+}
          
   loadLogin ();
+  
       
     
