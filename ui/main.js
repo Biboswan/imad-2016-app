@@ -59,6 +59,7 @@ var submit=document.getElementById('login-btn');
               // Take some action
               if (request2.status === 200) {
                   submit.innerHTML = 'Logged!';
+                    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi'+username+'</span>'; 
               } else if (request2.status === 403) {
                  alert('Invalid credentials. Try again?');
                   submit.innerHTML = 'Login'
