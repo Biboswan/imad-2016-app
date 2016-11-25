@@ -150,8 +150,8 @@ app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 var comarr=[];
-app.get('/submit-comment', function (req, res) {//submit-name?name=xxxx
-    var com =req.query.comment;
+app.post('/submit-comment', function (req, res) {//submit-name?name=xxxx
+    var com =req..comment;
     comarr.push(com);
      res.send(JSON.stringify(comarr));
 });
