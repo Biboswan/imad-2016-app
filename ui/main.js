@@ -140,7 +140,7 @@ function Logout()
     
 }
 function commSubmit(){
-    var commtext=document.getElementById('comment_text').innerHTML;
+    var commtext=document.getElementById('comment_text').value;
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -152,7 +152,7 @@ function commSubmit(){
     };
         request.open('POST', '/submit-comment', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()",commtext:text}));
+        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()",commtext:commtext}));
     
 }
          
