@@ -55,8 +55,7 @@ var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info">Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()>Logout</a>';
 var submit=document.getElementById('login-btn');
-var commHTML =`
-	        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
 	        <br/>
 	        <input type="submit" id="com-sub" value="comment" onclick=commSubmit()/>
 	        <br/>`;
@@ -152,7 +151,7 @@ function commSubmit(){
     };
         request.open('POST', '/', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));
+        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()"}));
     
 }
          
