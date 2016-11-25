@@ -151,7 +151,9 @@ app.get('/ui/main', function (req, res) {
 });
 var comarr=[];
 app.post('/submit-comment', function (req, res) {//submit-name?name=xxxx
-    var com =req..comment;
+    var path = req.body.pathname;
+    var date = req.body.date;
+    var commtext = req.body.commtext;
     comarr.push(com);
      res.send(JSON.stringify(comarr));
 });
