@@ -57,7 +57,7 @@ var logoutHTML='<a class="btn btn-info" onclick=Logout()>Logout</a>';
 var submit=document.getElementById('login-btn');
 var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
 	        <br/>
-	        <input type="submit" id="com-sub" value="comment" onclick=commSubmit()/>
+	        <input type="submit"  value="comment" onclick=commSubmit()/>
 	        <br/>`;
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -122,6 +122,7 @@ function loadUnknownUser()
      document.getElementById('user_icon').innerHTML='';
      document.getElementById('create_acc').innerHTML=create_accHTML;
      document.getElementById('log').innerHTML=loginHTML;
+     document.getElementById('comm').innerHTML='';
      
 }
 function Logout()
@@ -153,12 +154,12 @@ function commSubmit(){
     };
         request.open('POST', '/submit-comment', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({ pathname:window.location.path,date:date,commtext:commtext}));
+        request.send(JSON.stringify({ pathname:(window.location.path),date:date,commtext:commtext}));
     
 }
 function AppendComment(username,date,commtext)
 {
-   var commentsHTML=` <div class="media">
+   var commentsHTML=`<div class="media">
            <div class="media-left">
            <div class="media-body">
                <h4 class="media-heading">${username}<small><i>Posted on ${date}</i></small></h4>
@@ -167,7 +168,7 @@ function AppendComment(username,date,commtext)
 	   </div>
 	   </div>`;
 	   var commentlist = document.getElementById('comment-list');
-       commentlist.insertBefore(commentsHTML,list.childNodes[2]);
+       commentlist.insertBefore(commentsHTML,commentlist.childNodes[2]);
 }
     
          
