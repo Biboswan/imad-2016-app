@@ -30,8 +30,8 @@ app.get('/visited', function (req, res) {
    
 });
 function hashed(input,salt){
-    var hash = crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512').toString('HEX');
-    return ["pbkd","10000",salt,hash].join('&');
+    var hash = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512').toString('HEX');
+    return ["pbkdf2","10000",salt,hash].join('&');
 }
 
 app.post('/create-user',function(req,res){
@@ -65,15 +65,11 @@ app.post('/login', function (req, res) {
           } else {
               // Match the password
               var dbString = result.rows[0].password;
-              var salt = dbString.split('$')[2];
+              var salt = dbString.split('&')[2];
               var hashedPassword = hashed(password, salt); // Creating a hash based on the password submitted and the original salt
               if (hashedPassword === dbString) {
                 
-                // Set the session
-                req.session.auth = {userId: result.rows[0].id};
-                // set cookie with a session id
-                // internally, on the server side, it maps the session id to an object
-                // { auth: {userId }}
+             req.session.auth = {userId: result.rows[0].id};
                 
                 res.send('credentials correct!');
                 
