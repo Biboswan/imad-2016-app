@@ -149,7 +149,12 @@ function commSubmit(){
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
             {
+                console.log('check2');
              AppendComment(this.responseText,date,commtext);   
+            }
+            else
+            {
+               alert(this.responseText) ;
             }
         }
     };
