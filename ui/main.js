@@ -46,8 +46,8 @@ function battstatus()
     navigator.getBattery().then(function(battery)
     {
         var batt=document.getElementById('battery');
-batt.style.width=battery.level*70+'px';
-batt.innerHTML=battery.level*100+'%';
+        batt.style.width=battery.level*70+'px';
+        batt.innerHTML=battery.level*100+'%';
 })
 }
 var interval=setInterval(battstatus,1000);
