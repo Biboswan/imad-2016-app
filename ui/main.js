@@ -62,7 +62,7 @@ var submit=document.getElementById('login-btn');
               if (request.status === 200) {
                   submit.innerHTML = 'Logged!';
               } else if (request.status === 403) {
-                  submit.innerHTML = 'Invalid credentials. Try again?';
+                 alert('Invalid credentials. Try again?');
               } else if (request.status === 500) {
                   alert('Something went wrong on the server');
                   submit.innerHTML = 'Login';
