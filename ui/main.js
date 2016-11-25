@@ -57,7 +57,7 @@ var logoutHTML='<a class="btn btn-info" onclick=Logout()>Logout</a>';
 var submit=document.getElementById('login-btn');
 var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
 	        <br/>
-	        <input type="submit"  value="comment" onchange=commSubmit()/>
+	        <button onclick=commSubmit()>comment</button>
 	        <br/>`;
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
