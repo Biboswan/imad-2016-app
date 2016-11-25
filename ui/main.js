@@ -140,7 +140,7 @@ function Logout()
     
 }
 function commSubmit(){
-    var text=document.getElementById('comment_text').innerHTML;
+    var commtext=document.getElementById('comment_text').innerHTML;
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
