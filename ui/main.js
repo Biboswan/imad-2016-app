@@ -160,7 +160,7 @@ function commSubmit(){
     };
         request.open('POST', '/submit-comment', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({ pathname:(window.location.path),date:date,commtext:commtext}));
+        request.send(JSON.stringify({ pathname:(window.location.pathname),date:date,commtext:commtext}));
     
 }
 function AppendComment(username,date,commtext)
