@@ -53,17 +53,15 @@ function battstatus()
 var interval=setInterval(battstatus,1000);
 var submit=document.getElementById('login-btn');
           submit.onclick = function(){
-            var request = new XMLHttpRequest();
-        console.log('check');
-        // Capture the response and store it in a variable
+            var request2 = new XMLHttpRequest();
         request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
+          if (request2.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
                   submit.innerHTML = 'Logged!';
-              } else if (request.status === 403) {
+              } else if (request2.status === 403) {
                  alert('Invalid credentials. Try again?');
-              } else if (request.status === 500) {
+              } else if (request2.status === 500) {
                   alert('Something went wrong on the server');
                   submit.innerHTML = 'Login';
               } else {
