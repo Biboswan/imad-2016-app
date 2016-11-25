@@ -1,7 +1,7 @@
              
              var submit=document.getElementById('register');
-            submit.onclick =function(){
-            var request = new XMLHttpRequest();
+             submit.onclick =function(){
+             var request = new XMLHttpRequest();
             request.onreadystatechange = function () {
             if (request.readyState === XMLHttpRequest.DONE) {
           
@@ -11,7 +11,7 @@
                   alert(request.responseText);
               } else {
                   alert('Could not create the account');
-                   alert(request.responseText);
+                  alert(request.responseText);
                   submit.value = 'Submit';
               }
           }
