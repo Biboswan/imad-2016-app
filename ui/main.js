@@ -51,6 +51,9 @@ function battstatus()
 });
 }
 var interval=setInterval(battstatus,1000);
+var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</a>';
+var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info">Login</a>';
+var logoutHTML='<a class="btn btn-info">Logout</a>';
 var submit=document.getElementById('login-btn');
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -91,7 +94,7 @@ function loadLogin () {
                 console.log('checking');
                 loadLoggedInUser(this.responseText);
             } else {
-              
+                 loadUnknownUser();
             }
         }
     };
@@ -101,10 +104,17 @@ function loadLogin () {
 }
 function loadLoggedInUser(username)
 {
-    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>'; 
-      
+    document.getElementById('logout').innerHTML=logoutHTML; 
+    document.getElementById('user_icon').innerHTML=user_iconHTML;
+}
+function loadUnknownUser()
+{
+     document.getElementById('create_acc').innerHTML=create_accHTML;
+     document.getElementById('log').innerHTML=loginHTML;
+     
 }
          
-  loadLogin ();    
+  loadLogin ();  
+  var user_iconHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
       
     
