@@ -68,6 +68,8 @@ var submit=document.getElementById('login-btn');
                   alert('Something went wrong on the server');
                   submit.innerHTML = 'Login';
               }
+          }
+        };
              //loadLogin();        
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
@@ -76,9 +78,6 @@ var submit=document.getElementById('login-btn');
         request2.send(JSON.stringify({username: username, password: password}));  
         submit.innerHTML = 'Logging in...';
         
-    }
-
-          };
 };
 /*function loadLogin () {
     // Check if the user is already logged in
