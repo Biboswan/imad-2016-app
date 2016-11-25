@@ -57,7 +57,7 @@ var submit=document.getElementById('login-btn');
         request2.onreadystatechange = function () {
           if (request2.readyState === XMLHttpRequest.DONE) {
               // Take some action
-              if (request.status === 200) {
+              if (request2.status === 200) {
                   submit.innerHTML = 'Logged!';
               } else if (request2.status === 403) {
                  alert('Invalid credentials. Try again?');
