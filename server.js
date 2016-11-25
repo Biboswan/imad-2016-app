@@ -98,9 +98,25 @@ app.get('/logout', function (req, res) {
    delete req.session.auth;
    res.send('You are now logged out');
 });
-
-
-
+app.post('/submit-comment', function (req, res) {
+    var path = req.body.pathname;
+    var date = req.body.date;
+    var commtext = req.body.commtext;
+    var username='';
+    pool.query('SELECT * FROM "Users" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+           if (err) {
+              res.status(500).send(err.toString());
+           } else {
+             username=result.rows[0].username;    
+           }
+       });
+    pool.query('INSERT into ${path}("username","date","comment") VALUES($1,$2,$3)',[username,date,commtext],function(err,result){ if (err) {
+          res.status(500).send(err.toString());
+      } else {
+     res.send(username);
+ }
+});
+});
 
 
 var counter =0,x=0;
@@ -149,25 +165,7 @@ app.get('/ui/acc-form', function (req, res) {
 app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
-app.post('/submit-comment', function (req, res) {
-    var path = req.body.pathname;
-    var date = req.body.date;
-    var commtext = req.body.commtext;
-    var username='';
-    pool.query('SELECT * FROM "Users" WHERE id = $1', [req.session.auth.userId], function (err, result) {
-           if (err) {
-              res.status(500).send(err.toString());
-           } else {
-             username=result.rows[0].username;    
-           }
-       });
-    pool.query('INSERT into ${path}(username,date,comment) VALUES($1,$2,$3)',[username,date,commtext],function(err,result){ if (err) {
-          res.status(500).send(err.toString());
-      } else {
-     res.send(username);
- }
-});
-});
+
 app.get('/ui/home', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));});
   app.get('/ui/p1', function (req, res) {
