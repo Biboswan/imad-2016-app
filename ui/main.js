@@ -71,7 +71,7 @@ var submit=document.getElementById('login-btn');
               }
           }
         };
-             //loadLogin();        
+             loadLogin();        
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         request2.open('POST', '/login', true);
@@ -80,7 +80,7 @@ var submit=document.getElementById('login-btn');
         submit.innerHTML = 'Logging in...';
         
 };
-/*function loadLogin () {
+function loadLogin () {
     // Check if the user is already logged in
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -88,7 +88,7 @@ var submit=document.getElementById('login-btn');
             if (request.status === 200) {
                 loadLoggedInUser(this.responseText);
             } else {
-              //  loadLoginForm();
+              // loadLoginForm();
             }
         }
     };
@@ -96,8 +96,11 @@ var submit=document.getElementById('login-btn');
     request.open('GET', '/check-login', true);
     request.send(null);
 }
-*/
-
+function loadLoggedInUser(username)
+{
+    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user>Hi'+username+'</span>'; 
+      
+}
          
       
       
