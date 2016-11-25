@@ -100,7 +100,7 @@ function loadLogin () {
 }
 function loadLoggedInUser(username)
 {
-    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user>Hi'+username+'</span>'; 
+    document.getElementById('logged').innerHTML='<span class="glyphicon glyphicon-user">Hi'+username+'</span>'; 
       
 }
          
