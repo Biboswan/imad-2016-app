@@ -71,9 +71,9 @@ var submit=document.getElementById('login-btn');
              //loadLogin();        
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        request.open('POST', '/login', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));  
+        request2.open('POST', '/login', true);
+        request2.setRequestHeader('Content-Type', 'application/json');
+        request2.send(JSON.stringify({username: username, password: password}));  
         submit.innerHTML = 'Logging in...';
         
     }
