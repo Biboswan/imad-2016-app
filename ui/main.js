@@ -114,7 +114,7 @@ function loadLoggedInUser(username)
     document.getElementById('log').innerHTML='';
     document.getElementById('logout').innerHTML=logoutHTML; 
     document.getElementById('user_icon').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
-    document.getElementById('comm').innerHTML=comm;
+    document.getElementById('comm').innerHTML=commHTML;
 }
 function loadUnknownUser()
 {
@@ -140,6 +140,7 @@ function Logout()
     
 }
 function commSubmit(){
+    var text=document.getElementById('comment_text').innerHTML;
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -149,9 +150,9 @@ function commSubmit(){
             }
         }
     };
-        request.open('POST', '/', true);
+        request.open('POST', '/submit-comment', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()"}));
+        request.send(JSON.stringify({ pathname:window.location.path,date:"new Date().toDateString()+', '+new Date().toLocaleTimeString()",commtext:text}));
     
 }
          
