@@ -43,7 +43,8 @@ body {
         font: italic 20px cursive;
     }
     .background1{
-        background-image:url(http://biboswan.imad.hasura-app.io/ui/p1);
+        background-image:url(http://biboswan.imad.hasura-app.io/ui/p1) no-repeat center fixed;
+        background-size: cover;
 
     }
     .background2{
