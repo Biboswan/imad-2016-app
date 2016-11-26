@@ -170,11 +170,12 @@ function AppendComment(username,date,commtext)
            <div class="media-body">
                <h4 class="media-heading">${username}<small><i>Posted on ${date}</i></small></h4>
                <p>${commtext}</p>
-	   </div>
-	   </div>
-	   </div>`;
+	      </div>
+	      </div>
+	      </div>`;
 	   var commentlist = document.getElementById('comment-list');
-       commentlist.insertBefore(commentsHTML,commentlist.childNodes[2]);
+	   commentlist.innerHTML=commentsHTML+(commentlist.innerHTML);
+      // commentlist.insertBefore(commentsHTML,commentlist.childNodes[2]);
 }
     
          
