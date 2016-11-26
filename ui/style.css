@@ -52,10 +52,7 @@ body {
 
     
     .background2{
-        background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcToUShLwC9hf4dFNzfM076_UoUFWaa7tIyFnaN5QuHezEhcks5H)no-repeat center fixed;
-        background-size: cover;
-        
-
+        background:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcToUShLwC9hf4dFNzfM076_UoUFWaa7tIyFnaN5QuHezEhcks5H)
     }
    
   .carousel-inner > .item > img,
