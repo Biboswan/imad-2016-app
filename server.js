@@ -107,13 +107,13 @@ app.post('/submit-comment', function (req, res) {
            if (err) {
               res.status(500).send(err.toString());
            } else {
-             username=result.rows[0].username;    
-           }
-       });
-    pool.query('INSERT into "'+ path +'"VALUES ($1,$2,$3)',[username,date,commtext],function(err,result){ if (err) {
+             username=result.rows[0].username; 
+             pool.query('INSERT into "'+ path +'"VALUES ($1,$2,$3)',[username,date,commtext],function(err,result){ if (err) {
           res.status(500).send(err.toString());
       } else {
      res.send(username);
+           }
+       });
  }
 });
 });
