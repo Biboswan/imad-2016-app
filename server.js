@@ -165,7 +165,7 @@ app.get('/ui/acc-form', function (req, res) {
 app.get('/ui/main', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
-app.get('xss-filters', function (req, res) {
+app.get('/xss-filters', function (req, res) {
      res.sendFile(path.join(__dirname, '', 'xss-filters.min.js'));
 });
 
