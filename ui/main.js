@@ -178,9 +178,14 @@ function AppendComment(username,date,commtext)
 	   commentlist.innerHTML=commentsHTML+(commentlist.innerHTML);
       // commentlist.insertBefore(commentsHTML,commentlist.childNodes[2]);
 }
+function loadComments()
+{
+    
+}
     
          
   loadLogin ();
+  loadComments();
   
       
     
