@@ -7,11 +7,11 @@ var counter,content,request;
         if(request.status===200)
         {
            counter=request.responseText;
-           content=document.getElementById('c')
+           content=document.getElementById('c');
         content.innerHTML=counter.toString();
         }
         }
-    }
+    };
      request.open('GET',`http://biboswan.imad.hasura-app.io/visited`,true);
      request.send(null);
       
