@@ -44,7 +44,11 @@ body {
     }
     .background1{
         background:url(http://biboswan.imad.hasura-app.io/ui/p1) no-repeat center fixed;
-        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+           background-size: cover;
+}
 
     }
     .background2{
