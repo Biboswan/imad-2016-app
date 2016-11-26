@@ -151,6 +151,7 @@ function commSubmit(){
             {
                 console.log('check2');
              AppendComment(this.responseText,date,commtext);   
+              document.getElementById('comment_text').value='';
             }
             else
             {
@@ -176,6 +177,7 @@ function AppendComment(username,date,commtext)
 	      </div>`;
 	   var commentlist = document.getElementById('comment-list');
 	   commentlist.innerHTML=commentsHTML+(commentlist.innerHTML);
+	  
       // commentlist.insertBefore(commentsHTML,commentlist.childNodes[2]);
 }
 function loadComments()
