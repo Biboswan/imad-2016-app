@@ -113,7 +113,7 @@ function loadLoggedInUser(username)
     document.getElementById('create_acc').innerHTML='';
     document.getElementById('log').innerHTML='';
     document.getElementById('logout').innerHTML=logoutHTML; 
-    document.getElementById('user_icon').innerHTML='<span class="glyphicon glyphicon-user glyphicon-lg">Hi '+username+'</span>';
+    document.getElementById('user_icon').innerHTML='<a href="#"><span class="glyphicon glyphicon-user"></span>Hi '+username+'</a>';
     document.getElementById('comm').innerHTML=commHTML;
 }
 function loadUnknownUser()
