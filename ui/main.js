@@ -180,7 +180,27 @@ function AppendComment(username,date,commtext)
 }
 function loadComments()
 {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            {
+               var oldComments=JSON.parse(request.responseText);
+               var Comlength=oldComments.rows.length;
+               for(var i=0;i<Comlength;i++)
+               {
+                AppendComment(oldComments.rows[i].username,oldComments.rows[i].date,oldComments.rows[i].comment);
+               }
+               
+            } else {
+                alert('this.responseText');
+            }
+        }
+        
+    };
     
+    request.open('GET', '/load-comments?path='+window.location.pathname, true);
+    request.send(null);
 }
     
          
