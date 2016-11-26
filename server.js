@@ -117,6 +117,17 @@ app.post('/submit-comment', function (req, res) {
  }
 });
 });
+app.get('/load-comments',function (req, res){
+    var path=req.query.path;
+    pool.query('SELECT * FROM "'+ path +'"',function (err, result) {
+             if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               res.send(JSON.stringify(result));
+           }
+          });
+});
+
 
 
 var counter =0,x=0;
