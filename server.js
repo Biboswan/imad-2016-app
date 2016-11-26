@@ -164,10 +164,8 @@ app.get('/ui/acc-form', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'acc_form.html'));
 });
 
-  app.get('/counter', function (req, res) {
-      counter=counter+1;
-      
-  res.send(counter.toString());
+  app.get('/ui/open', function (req, res) {
+      res.sendFile(path.join(__dirname, 'ui', 'open.js'));
 });
 
  app.get('/ui/acc', function (req, res) {
