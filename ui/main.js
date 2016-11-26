@@ -141,7 +141,7 @@ function Logout()
     
 }
 function commSubmit(){
-    var commtext=document.getElementById('comment_text').value;
+    var commtext=xssFilters.inHTMLComment(document.getElementById('comment_text').value);
     console.log('check');
     var date=new Date().toDateString()+', '+new Date().toLocaleTimeString();
     var request = new XMLHttpRequest();
@@ -165,7 +165,8 @@ function commSubmit(){
 }
 function AppendComment(username,date,commtext)
 {
-   var commentsHTML=`<div class="media">
+          username=username+' ';
+          var commentsHTML=`<div class="media">
            <div class="media-left">
            <div class="media-body">
                <h4 class="media-heading">${username}<small><i>Posted on ${date}</i></small></h4>
