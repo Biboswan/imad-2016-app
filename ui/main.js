@@ -15,8 +15,9 @@
   function updateChargeInfo(){
       var status='';
     if(battery.charging)
-    { status='charging'}
-    else{status='discharging'}
+    { status='charging';}
+    else{status='discharging';}
+     $('#battery-box').tooltip({title:status ,placement: "bottom"});
       
   }
 
@@ -53,9 +54,7 @@ function battstatus()
         batt.innerHTML=Math.round(battery.level*100)+'%';
 });
 }
-$(document).ready(function(){
-    $('#battery-box').tooltip({title:status ,placement: "bottom"}); 
-});
+
 var interval=setInterval(battstatus,1000);
 
 var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</a>';
