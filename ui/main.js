@@ -13,8 +13,14 @@
     updateChargeInfo();
   });
   function updateChargeInfo(){
-    console.log("Battery charging? "
-                + (battery.charging ? "Yes" : "No"));
+      var status='';
+    if(battery.charging)
+    { status='charging'}
+    else{status='discharging'}
+    $(document).ready(function(){
+    $('#battery-box').tooltip({title:status ,placement: "bottom"}); 
+});
+      
   }
 
   battery.addEventListener('levelchange', function(){
@@ -46,7 +52,7 @@ function battstatus()
     navigator.getBattery().then(function(battery)
     {
         var batt=document.getElementById('battery');
-        batt.style.width=battery.level*70+'px';
+        batt.style.width=battery.level*90+'px';
         batt.innerHTML=Math.round(battery.level*100)+'%';
 });
 }
@@ -55,7 +61,7 @@ var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var submit=document.getElementById('login-btn');
-var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)></textarea>
 	        <br/>
 	        <button onclick=commSubmit()>comment</button>
 	        <br/>`;
