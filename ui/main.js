@@ -17,8 +17,7 @@
     if(battery.charging)
     { status='charging';}
     else{status='discharging';}
-     $('#battery-box').tooltip({data-original-title:status ,placement: "bottom"});
-      
+    $('#battery-box').tooltipster('content', status);
   }
 
   battery.addEventListener('levelchange', function(){
@@ -44,6 +43,9 @@ battery.addEventListener('dischargingtimechange', function(){
                  + battery.dischargingTime + " seconds");
   }
 
+});
+$(document).ready(function(){
+$('#battery-box').tooltip({title:status,placement:"bottom"});
 });
 function battstatus()
 {
