@@ -12,7 +12,6 @@ app.use(session({
     secret: 'someRandomSecretValue',
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
 }));
-
 var config =
 {
     user :'biboswan',
@@ -29,6 +28,12 @@ app.get('/visited', function (req, res) {
     });
    
 });
+var http = require('http');
+var fs = require('fs');
+var formidable = require("formidable");
+var util = require('util');
+
+
 function hashed(input,salt){
     var hash = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512').toString('HEX');
     return ["pbkdf2","10000",salt,hash].join('&');
