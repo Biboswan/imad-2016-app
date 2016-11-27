@@ -30,7 +30,7 @@
                   }*/
                   var formdata = new FormData(document.getElementById('acc-form'));
                   request.open('POST', '/create-user', true);
-                  request.setRequestHeader('Content-Type', 'application/json');
+                  request.setRequestHeader('Content-Type', 'multipart/form-data');
                   request.send(formdata);
                   //request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex.value}));  
                   submit.value = 'Submiting...';
