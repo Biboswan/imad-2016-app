@@ -17,7 +17,7 @@
     if(battery.charging)
     { status='charging';}
     else{status='discharging';}
-    $('#battery-box').tooltipster('content', status);
+    $('#battery-box').data('tooltip').getTip().html(status) ;
   }
 
   battery.addEventListener('levelchange', function(){
