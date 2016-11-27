@@ -16,7 +16,7 @@
               }
           }
         };
-                  
+                 /* 
                   var username = document.getElementById('username').value;
                   var password = document.getElementById('pwd').value;
                   var name = document.getElementById('name').value;
@@ -27,16 +27,32 @@
                   {
                   sex = document.getElementById('sex'+i);
                   if(sex.checked===true){break;}
-                  }
+                  }*/
+                  var formdata = new FormData(document.getElementById('acc-form'));
                   request.open('POST', '/create-user', true);
                   request.setRequestHeader('Content-Type', 'application/json');
-                  request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex.value}));  
+                  //request.send(JSON.stringify({username: username, password: password,name:name,dob:dob,email:email,sex:sex.value}));  
                   submit.value = 'Submiting...';
                    
           };
           document.getElementById('back').onclick= function(){
               history.back();
           };
+          var Maxsize=24000 ,oFile='';
+    function fileSelected()
+    {
+         oFile = document.getElementById('image_file').files[0];
+         var rFilter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+	if (! rFilter.test(oFile.type)) {
+	alert('only image files allowed!!');
+	return;
+	}
+	if (oFile.size > Maxsize) {
+	alert('try a smaller file');
+    return;
+    }
+    document.getElementById('filesize').innerHTML='filesize:'+oFile.size/1000+'KB';
+    }
           
 
 
