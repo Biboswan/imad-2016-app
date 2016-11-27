@@ -41,6 +41,7 @@ function hashed(input,salt){
 
 app.post('/create-user',function(req,res){
     var username=req.body.username;
+    console.log(username);
     var password=req.body.password;
     var name = req.body.name;
     var dob = req.body.dob;
