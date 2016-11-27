@@ -41,6 +41,7 @@ app.post('/create-user',function(req,res){
     var dob = req.body.dob;
     var email =req.body.email;
     var sex = req.body.sex;
+    var image_file=req.body.image_file;
   if (username.trim()===''||password.trim()===''||email.trim()===''){
     res.status(403).send("Invalid credentials entered");}
     var hashpass=hashed(password,crypto.randomBytes(128).toString('hex'));
