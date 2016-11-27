@@ -14,7 +14,7 @@
     <body>
         <div class="container">
   <h2 class="center">Account Form</h2>
-  <form class="form-horizontal" enctype="multipart/form-data" id="acc-form">
+  <form class="form-horizontal">
        <div class="form-group">
            <label class="control-label col-sm-2">Username:</label>
            <div class="col-sm-10">
@@ -55,12 +55,6 @@
         <div class="col-sm-3">
   <input  id="sex3" type="radio" name="sex" value="other"> Other</div>
     </div>
-    <div class="form-group">
-      <label for="image_file" class="control-label col-sm-2">Select pic(optional)</label>
-        <div class="col-sm-3"><input type="file" name="image_file" id="image_file" onchange="fileSelected()"><span><small>(file size upto 24KB)</small></span><br>
-         <div id="filesize"></div>
-        </div>
-        </div>
     </form>
       <div class="center">
         <input type="submit" class="btn btn-success" value="SUBMIT" id="register"/>
