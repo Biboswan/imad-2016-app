@@ -63,7 +63,7 @@ var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var submit=document.getElementById('login-btn');
-var commHTML =`<textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
+var commHTML =`<textarea id="comment_text" rows="5" cols="" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)" disabled ></textarea>
 	        <br/>
 	        <button onclick=commSubmit()>comment</button>
 	        <br/>`;
