@@ -120,7 +120,6 @@ var interval=setInterval(battstatus,1000);
 var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
-var submit=document.getElementById('login-btn');
 var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
 	        <br/>`;
 	        var create_acc=  document.getElementById('create_acc');
@@ -130,6 +129,7 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
             document.getElementById('comm').innerHTML=commHTML;
             var comment_text= document.getElementById('comment_text');
             var combutn =document.getElementById('combutn');
+            var submit=document.getElementById('login-btn');
 	       
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -201,6 +201,7 @@ function loadUnknownUser()
      $("#comment_text").attr('disabled','disabled');
      comment_text.style.cursor = "not-allowed";
      combutn.innerHTML='<button>comment</button><br/>';
+     submit.innerHTML = 'Login';
      
      
 }
@@ -285,7 +286,7 @@ function loadComments()
 }
     
          
-  loadLogin ();
+  loadLogin();
   loadComments();
   
       
