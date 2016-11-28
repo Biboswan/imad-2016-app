@@ -36,8 +36,8 @@
                   submit.value = 'Submiting...';
                    
           };
-          document.getElementById('back').onclick= function(){
-              history.back();
+          document.getElementById('exit').onclick= function(){
+              window.close();
           };
          
    
