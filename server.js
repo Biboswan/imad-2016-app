@@ -153,7 +153,7 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 app.get('/ui/me1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'me1.png'));
+  res.sendFile(path.join(__dirname, 'ui', 'blog pic.jpg'));
 });
 app.get('/ui/Info', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'Info.html'));
