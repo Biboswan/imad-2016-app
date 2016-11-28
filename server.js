@@ -132,6 +132,36 @@ app.get('/load-comments',function (req, res){
            }
           });
 });
+app.get('/count-likes',function(req,res){
+    var path=req.query.path+'L';
+    pool.query('SELECT COUNT (*) FROM "'+ path +'"',function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               res.send(result.toString());
+           }
+    });
+});
+app.get('/accept-like',function(req,res){
+    var path=req.query.path+'L';
+    var username='';
+    pool.query('SELECT * FROM "Users" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+           if (err) {
+              res.status(500).send(err.toString());
+           } else {
+             username=result.rows[0].username;
+    pool.query('INSERT into "'+ path +'" ("username") VALUES (username)',function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               res.send('sucess');
+           }
+    });
+           }
+});
+});
+
+
 
 
 
