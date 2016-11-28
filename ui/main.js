@@ -315,7 +315,7 @@ function likeclick()
                 countlike.innerHTML=toString(Number(countlike.innerHTML)+1);
            }
         else{
-              alert(this.responseText+' coundnt accept like');
+              alert('Like not accepted ,I think u hv liked already!');
             }
          }
     };
@@ -325,7 +325,6 @@ function likeclick()
 
     
   loadLogin();
-  countlikes();
   loadComments();
   
       
