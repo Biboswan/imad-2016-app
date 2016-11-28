@@ -59,7 +59,7 @@ function battstatus()
 
 var interval=setInterval(battstatus,1000);
 
-var create_accHTML='<button class="btn btn-info" onclick=window.open(http://biboswan.imad.hasura-app.io/ui/acc-form)>Create Account</a>';
+var create_accHTML='<button class="btn btn-info" onclick=window.open(http://biboswan.imad.hasura-app.io/ui/acc-form)>Create Account</button>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var submit=document.getElementById('login-btn');
