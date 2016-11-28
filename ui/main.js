@@ -63,10 +63,16 @@ var create_accHTML='<a href="/ui/acc-form" class="btn btn-info">Create Account</
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var submit=document.getElementById('login-btn');
-var commHTML =`<textarea id="comment_text" rows="5" cols="" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)" disabled ></textarea>
-	        <br/>
-	        <button onclick=commSubmit()>comment</button>
+var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
 	        <br/>`;
+	        var create_acc=  document.getElementById('create_acc');
+            var log=document.getElementById('log');
+            var logout=document.getElementById('logout');
+            var user_icon=document.getElementById('user_icon');
+            document.getElementById('comm').innerHTML=commHTML;
+            var comment_text= document.getElementById('comment_text');
+            var combutn =document.getElementById('combutn');
+	       
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
         request2.onreadystatechange = function () {
@@ -115,22 +121,29 @@ function loadLogin () {
     
     request.open('GET', '/check-login', true);
     request.send(null);
+    
 }
 function loadLoggedInUser(username)
 {
-    document.getElementById('create_acc').innerHTML='';
-    document.getElementById('log').innerHTML='';
-    document.getElementById('logout').innerHTML=logoutHTML; 
-    document.getElementById('user_icon').innerHTML='<a href="#"><span class="glyphicon glyphicon-user"></span>Hi '+username+'</a>';
-    document.getElementById('comm').innerHTML=commHTML;
+      create_acc.innerHTML='';
+      log .innerHTML='';
+      logout.innerHTML=logoutHTML; 
+      user_icon.innerHTML='<a href="#"><span class="glyphicon glyphicon-user"></span>Hi '+username+'</a>';
+    $("#comment_text").removeAttr('disabled');
+     comment_text.style.cursor = "text";
+     combutn.innerHTML='<button onclick=commSubmit()>comment</button><br/>';
+   
 }
 function loadUnknownUser()
 {
-     document.getElementById('logout').innerHTML='';
-     document.getElementById('user_icon').innerHTML='';
-     document.getElementById('create_acc').innerHTML=create_accHTML;
-     document.getElementById('log').innerHTML=loginHTML;
-     document.getElementById('comm').innerHTML='';
+     logout.innerHTML='';
+     user_icon.innerHTML='';
+     create_acc.innerHTML=create_accHTML;
+     log.innerHTML=loginHTML;
+     $("#comment_text").attr('disabled','disabled');
+     comment_text.style.cursor = "not-allowed";
+     combutn.innerHTML='<button>comment</button><br/>';
+     
      
 }
 function Logout()
