@@ -13,30 +13,16 @@
     </head>
    
     <BODY>
-        <div style="background-color:rgba(223, 240, 216, 0.75)">
-         <h1>
-        ARTICLE 1
-    </h1>
-     <ul class="nav nav-pills">
-  <li><a href="/ui/home">Home</a></li>
-   <li><a href="/ui/Info">Info</a></li>
-  <li class="active"><a href="/ui/A1">Ambitions</a></li>
-   <li class="dropdown">
-    <a class= "dropdown-toggle" data-toggle="dropdown">PresentWherabouts
-    <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/ui/A2">Durga Puja</a></li>
-      <li><a href="/ui/cs-uni">CSE-United</a></li>
-      </ul>
-</li>
-</ul>
-    
-</div>
+        <div id="commonpart">
+           </div>
     
     <div style="background-color:rgba(0, 95, 128, 0.52)">
         <div>
         19/09/2016
 </div>
+<h1>
+        ARTICLE 1
+    </h1>
 <div style="font-size:16px;margin-left:20%;margin-right:20%;color:rgba(0, 255, 205, 0.86)">
 
 <p>
@@ -62,39 +48,8 @@
    and creating my blog-app.&#x263B;
    </p>
 </div>
-<input type="text" id ="com" placeholder="Comment"> </input>
-<input type="submit" value="Submit" id="accept"> </input>
-<ol id="list">
-</ol>
-<script>
-var submit=document.getElementById('accept');
-submit.onclick=function()
-{
-    var Inputcom=document.getElementById('com');
-    var comval=Inputcom.value;
-     var request= new XMLHttpRequest();
-     
-    request.onreadystatechange=function()
-    {
-        if(request.readyState===XMLHttpRequest.DONE)
-        {
-        if(request.status===200)
-        {
-          var comarr=JSON.parse(request.responseText);
-    var nlist='';
-    for(var i=0;i<comarr.length;i++)
-       nlist+='<li>'+comarr[i]+'</li>';
-    var ol=document.getElementById('list');
-    ol.innerHTML=nlist;
-        }
-        }
-    };
-    request.open('GET','http://biboswan.imad.hasura-app.io/submit-comment?comment='+comval,true);
-     request.send(null);
-     
-    
-};
-     </script>
+
+
      </div>
         
         <footer style="background-color:rgba(223, 240, 216, 0.75)">
