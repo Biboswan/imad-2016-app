@@ -2,6 +2,7 @@
 <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="utf-8">
     <title>
         Aims
     </title>
@@ -10,6 +11,7 @@
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js"></script>
     </head>
    
     <BODY>
@@ -18,11 +20,10 @@
         <div>
         19/09/2016
 </div>
-<h1>
+<div class="center text-big">
  MY FIRST ARTICLE ON THIS BLOG
-    </h1>
-<div style="font-size:16px;margin-left:20%;margin-right:20%;color:rgba(0, 255, 205, 0.86)">
-
+</div>
+<div id="artcle" style="font-size:18px;margin-left:20%;margin-right:20%;color:rgba(0, 255, 205, 0.86)">
 <p>
    I can still recollect the days when I used to visit my dad's office with mom and play pre-installed games
    on computer at the age of around 6 or 7!! I used to type aricles from newspapers.Obviously I knew switching
@@ -45,6 +46,7 @@
    Therefore I am pursing computer science and aspire to be a good coder and so on. I am bunking college
    and creating my blog-app.&#x263B;
    </p>
+   <button onclick=function(){document.getElementById('artcle').style.color='rgba(0,0,0,1)';};>font-black</button>
 </div>
 
      <div id="comm">
