@@ -130,6 +130,7 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
             var comment_text= document.getElementById('comment_text');
             var combutn =document.getElementById('combutn');
             var submit=document.getElementById('login-btn');
+            var countlikeHTML=`<button>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;
 	       
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -275,7 +276,7 @@ function loadComments()
                }
                
             } else {
-                alert('this.responseText');
+                alert(this.responseText);
             }
         }
         
@@ -284,9 +285,47 @@ function loadComments()
     request.open('GET', '/load-comments?path='+window.location.pathname, true);
     request.send(null);
 }
+function countlikes()
+{
+     var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            {
+                document.getElementById('likebutn').innerHTML=countlikeHTML;
+                 document.getElementById('countlike').innerHTML=this.responseText;
+            }
+            else{
+                alert(this.responseText+' coundnt load likes');
+            }
+        }
+    };
+     request.open('GET', '/count-likes?path='+window.location.pathname, true);
+    request.send(null);
+}
+function likeclick()
+{
     
-         
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            {
+                var countlike=document.getElementById('countlike');
+                countlike.innerHTML=toString(Number(countlike.innerHTML)+1);
+           }
+        else{
+              alert(this.responseText+' coundnt accept like');
+            }
+         }
+    };
+     request.open('GET', '/accept-like?path='+window.location.pathname, true);
+    request.send(null);
+}
+
+    
   loadLogin();
+  countlikes();
   loadComments();
   
       
