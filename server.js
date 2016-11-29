@@ -151,7 +151,7 @@ app.get('/accept-like',function(req,res){
               res.status(500).send(err.toString());
            } else {
              username=result.rows[0].username;
-    pool.query('INSERT into "'+ path +'" ("username") VALUES (username)',function(err,result) {
+    pool.query('INSERT into "'+ path +'" ("username") VALUES ($1)',[username],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
