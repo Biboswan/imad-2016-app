@@ -186,7 +186,7 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/me1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'blog pic.jpg'));
 });
-app.get('/ui/Info', function (req, res) {
+app.get('/ui/Ackn', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'Info.html'));
 });
 app.get('/:img', function (req, res) {
