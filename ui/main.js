@@ -317,7 +317,7 @@ function likeclick()
             if (request.status === 200)
             {
                 var countlike=document.getElementById('countlike');
-                countlike.innerHTML=toString(Number(countlike.innerHTML)+1);
+                countlike.innerHTML=toString(Number((countlike.innerHTML).trim())+1);
            }
         else{
               alert(request.responseText+'Like not accepted ,I think u hv liked already!');
