@@ -18,7 +18,7 @@ document.getElementById('commonpart').innerHTML=`<div>
            <div class="collapse navbar-collapse" id="myNavbar">
            <ul class="nav navbar-nav">
   <li class="active"><a href="/ui/home">Home</a></li>
-   <li><a href="/ui/Info">Acknowled..</a></li>
+   <li><a href="/ui/Ackn">Acknowled..</a></li>
   <li><a href="/ui/A1">Ambitions</a></li>
    <li class="dropdown">
     <a class= "dropdown-toggle" data-toggle="dropdown">PresentWherabouts
@@ -329,7 +329,7 @@ function likeclick()
                 countlike.innerHTML=Number((countlike.innerHTML).trim())+1+'';
            }
         else{
-              alert(request.responseText+'Like not accepted ,I think u hv liked already!');
+              alert('Like not accepted ,I think u hv liked already!');
             }
          }
     };
