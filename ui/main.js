@@ -114,13 +114,16 @@ function battstatus()
         batt.innerHTML=Math.round(battery.level*100)+'%';
 });
 }
+var cols="80";
+if(window.innerWidth<300){
+cols="60";}
 
 var interval=setInterval(battstatus,1000);
  var path=window.location.pathname;
 var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
-var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
+var commHTML =`<textarea id="comment_text" rows="5" cols=${cols} placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
 	        <br/>`;
 	        var create_acc=  document.getElementById('create_acc');
             var log=document.getElementById('log');
