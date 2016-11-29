@@ -143,8 +143,9 @@ app.get('/count-likes',function(req,res){
     });
 });
 app.get('/accept-like',function(req,res){
-    var path=req.query.path+'L';
+    var path=req.query.path +'L';
     var username='';
+    console.log(path);
     pool.query('SELECT * FROM "Users" WHERE id = $1', [req.session.auth.userId], function (err, result) {
            if (err) {
               res.status(500).send(err.toString());
