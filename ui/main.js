@@ -130,8 +130,8 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
             var comment_text= document.getElementById('comment_text');
             var combutn =document.getElementById('combutn');
             var submit=document.getElementById('login-btn');
-            var countlikeHTML=`<button>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;
-	       
+            var countlikeHTML=`<button id="act-likbutn" onclick=likeclick()>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;
+	        var path=window.location.pathname;
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
         request2.onreadystatechange = function () {
@@ -162,19 +162,18 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
         
 };
 
+if(path!=="/ui/home"){countlikes();}
+
 function loadLogin () {
     // Check if the user is already logged in 
-    var path=window.location.pathname;
-    var request = new XMLHttpRequest();
-    if(path!=="/ui/home"){countlikes();}
+     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
             {
                 console.log('checking');
                 loadLoggedInUser(this.responseText);
-                if(path!=="/ui/home"){
-                    document.getElementById('likebutn').innerHTML= `<button onclick=likeclick()>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;}
+                
             } else {
                  loadUnknownUser();
             }
@@ -195,6 +194,7 @@ function loadLoggedInUser(username)
     $("#comment_text").removeAttr('disabled');
      comment_text.style.cursor = "text";
      combutn.innerHTML='<button onclick=commSubmit()>comment</button><br/>';
+     if(path!=="/ui/home"){  $("#act-likbutn").removeAttr('disabled');}
      
    
 }
@@ -208,6 +208,7 @@ function loadUnknownUser()
      comment_text.style.cursor = "not-allowed";
      combutn.innerHTML='<button>comment</button><br/>';
      submit.innerHTML = 'Login';
+    if(path!=="/ui/home"){  $("#act-likbutn").attr('disabled','disabled');}
      
      
 }
