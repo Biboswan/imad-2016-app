@@ -116,7 +116,7 @@ function battstatus()
 }
 var cols="80";
 if(window.innerWidth<300){
-cols="60";}
+cols="40";}
 
 var interval=setInterval(battstatus,1000);
  var path=window.location.pathname;
