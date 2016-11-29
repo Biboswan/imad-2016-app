@@ -162,10 +162,10 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
         
 };
 
-if(path!=="/ui/home"){countlikes();}
+
 
 function loadLogin () {
-    // Check if the user is already logged in 
+    if(path!=="/ui/home"){countlikes();}
      var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
