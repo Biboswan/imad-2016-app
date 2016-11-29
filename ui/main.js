@@ -57,6 +57,12 @@ document.getElementById('commonpart').innerHTML=`<div>
     </div>
   </div>
 </div>`;
+ document.getElementById('footer').innerHTML=`<div class ="center follow" >
+        follow me on
+        <a href="https://www.facebook.com/Biboswan" style="margin-top:8px;">
+    <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
+    </a>
+    </div>`;
      navigator.getBattery().then(function(battery) {
          function updateAllBatteryInfo(){
            updateChargeInfo();
