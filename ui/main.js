@@ -293,7 +293,7 @@ function countlikes()
             if (request.status === 200)
             {
                 document.getElementById('likebutn').innerHTML=countlikeHTML;
-                 document.getElementById('countlike').innerHTML=this.responseText;
+                 document.getElementById('countlike').innerHTML=request.responseText;
             }
             else{
                 alert(this.responseText+' coundnt load likes');
