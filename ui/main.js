@@ -297,7 +297,7 @@ function countlikes()
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
             {
-                document.getElementById('likebutn').innerHTML=`<button id="act-likbutn" onclick=likeclick()>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;;
+                document.getElementById('likebutn').innerHTML=`<button id="act-likbutn" onclick=likeclick() disabled>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;;
                  document.getElementById('countlike').innerHTML=' '+request.responseText;
             }
             else{
