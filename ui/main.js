@@ -116,7 +116,7 @@ function battstatus()
 }
 
 var interval=setInterval(battstatus,1000);
-
+ var path=window.location.pathname;
 var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
@@ -130,8 +130,7 @@ var commHTML =`<textarea id="comment_text" rows="5" cols="80" placeholder="Enter
             var comment_text= document.getElementById('comment_text');
             var combutn =document.getElementById('combutn');
             var submit=document.getElementById('login-btn');
-            var countlikeHTML=`<button id="act-likbutn" onclick=likeclick()>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;
-	        var path=window.location.pathname;
+	       
           submit.onclick = function(){
             var request2 = new XMLHttpRequest();
         request2.onreadystatechange = function () {
@@ -298,7 +297,7 @@ function countlikes()
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
             {
-                document.getElementById('likebutn').innerHTML=countlikeHTML;
+                document.getElementById('likebutn').innerHTML=`<button id="act-likbutn" onclick=likeclick()>likes<span id='countlike' class="glyphicon glyphicon-thumbs-up"></span></button>`;;
                  document.getElementById('countlike').innerHTML=' '+request.responseText;
             }
             else{
