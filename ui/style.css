@@ -67,10 +67,10 @@ body {
    
   #loader{
       z-index:1;
-      animation: spin 2s  infinite ;
+      animation: spin 2s infinite ;
       margin-right:40%;
       margin-left:40%;
-      margin-top:400px;
+      margin-top:350px;
   } 
   
   @keyframes spin {
@@ -79,6 +79,7 @@ body {
 }
 #pseudo-body{
     display:none;
+    background: linear-gradient(to bottom right,rgba(58, 110, 177,0), blue);
 }
     
 
