@@ -66,10 +66,11 @@ body {
    }
    
   #loader{
-      background: linear-gradient(to bottom right,rgba(58, 110, 177,0), blue);
+      z-index:1;
       animation: spin 2s  infinite ;
-      top:45%;
-      left:40%;
+      margin-right:40%;
+      margin-left:40%;
+      margin-top:400px;
   } 
   
   @keyframes spin {
