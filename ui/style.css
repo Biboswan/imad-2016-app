@@ -68,9 +68,8 @@ body {
   #loader{
       background: linear-gradient(to bottom right,rgba(58, 110, 177,0), blue);
       animation: spin 2s  infinite ;
-      position: absolute;
-      margin-top:45%;
-      margin-left:40%;
+      top:45%;
+      left:40%;
   } 
   
   @keyframes spin {
