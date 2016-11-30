@@ -64,7 +64,10 @@ body {
    .footerbg {
       background-color:rgba(223, 240, 216, 0.75);
    }
-        
-
+   
+  #loader{}      
+#pseudo-body{
+    display:none;
+}
     
 
