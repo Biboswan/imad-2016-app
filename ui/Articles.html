@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta charset="utf-8">
     <title>
-        Ist Article
+    Articles
     </title>
      <link rel="icon" href="/logoB" type="image/x-icon">
      <link href="/ui/style.css" rel="stylesheet" />
@@ -14,14 +14,38 @@
         <script src="https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js"></script>
     </head>
     <body onload=loading() >
-         <img id="loader" src="/logoB" class="mg-circle img-responsive"/>
+         <img id="loader" src="/logoB" class="img-responsive"/>
         <div id="pseudo-body">
         <div id="commonpart">
            </div>
+         <div class="center">
+          <ul class="list-inline" style="list-style-type:none">
+              <li>Search Articles<span class="glyphicon glyphicon-search"></span></li>
+              <li><input type="text" id="category_seacrh" onkeyup="myFunction()" placeholder="Search Categories">
+             </li>
+             <ul id="category_list">
+              <li><a href="#">exams</a></li>
+               <li><a href="#">	festival</a></li>
+               <li><a href="#">food</a></li>
+                <li><a href="#">sports</a></li>
+               <li><a href="#">technology</a></li>
+               <li><a href="#"> travel</a></li>
+               </ul>
+             <li><input type="text" id="tag_search" onkeyup="myFunction()" placeholder="Search Categories"></li>
+             <ul id="list_list"></ul>
+             <li><button>Add Article</button></li>
+          </ul>
+          <input id="art_title" type ="text" plsceholder="Enter title">
+          <input id="art_title" type ="text" plsceholder="Enter title">
+          <textarea id="article_text" rows="5" cols=80 placeholder="Enter your article here..." ></textarea>
+	        <br/>
+	        <button id=""></button>
+         </div>  
            
-`<footer id="footer" class="footerbg">
+`     <footer id="footer" class="footerbg">
       </footer>
       </div>
       <script type="text/javascript" src="/ui/main"></script>
+      <script type="text/javascript" src="/ui/articlescript"></script>
       </body>
       </html>
