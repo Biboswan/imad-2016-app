@@ -339,6 +339,13 @@ function likeclick()
     <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
     </a>
     </div>`;
-  
+  function loading() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("pseudo-body").style.display = "block";
+}
       
     
