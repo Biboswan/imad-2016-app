@@ -20,26 +20,26 @@
            </div>
          <div class="center">
           <ul class="list-inline" style="list-style-type:none">
-              <li>Search Articles<span class="glyphicon glyphicon-search"></span></li>
-              <li><input type="text" id="category_seacrh" onkeyup="myFunction()" placeholder="Search Categories">
+              <li><span class="glyphicon glyphicon-search">Search Articles By</span></li>
+              <li><input list="category_list" name="category" placeholder="category">
+             <datalist id="category_list">
+             <option value="exams">
+             <option value="festival">
+             <option value="food"> 
+              <option value="sports">
+             <option value="technology">
+             <option value="travel">
+             </datalist>
              </li>
-             <ul id="category_list">
-              <li><a href="#">exams</a></li>
-               <li><a href="#">	festival</a></li>
-               <li><a href="#">food</a></li>
-                <li><a href="#">sports</a></li>
-               <li><a href="#">technology</a></li>
-               <li><a href="#"> travel</a></li>
-               </ul>
              <li><input type="text" id="tag_search" onkeyup="myFunction()" placeholder="Search Categories"></li>
              <ul id="list_list"></ul>
-             <li><button>Add Article</button></li>
+             <li><button>Create Article</button></li>
           </ul>
-          <input id="art_title" type ="text" plsceholder="Enter title">
-          <input id="art_title" type ="text" plsceholder="Enter title">
+          <input id="art_title" type ="text" placeholder="Enter title">
+          <input id="">
           <textarea id="article_text" rows="5" cols=80 placeholder="Enter your article here..." ></textarea>
 	        <br/>
-	        <button id=""></button>
+	        <button>Add</button>
          </div>  
            
 `     <footer id="footer" class="footerbg">
