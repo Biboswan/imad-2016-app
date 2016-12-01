@@ -238,7 +238,7 @@ function cat_tags(category)
             if (request.status === 200)
             { tags=JSON.parse(request.responseText); }
             else{
-                alert(request.responseText+' couldnt load articles');
+                alert(request.responseText+' couldnt load tags');
             }
             }
            };
