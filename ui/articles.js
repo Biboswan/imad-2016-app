@@ -242,7 +242,7 @@ function cat_tags(category)
 function loadarticles(cat_art)
 {   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var length=cat_art.rows.length;
-    var temp,var Art_indexHTML='';;
+    var temp, Art_indexHTML='';;
     for(var i=0;i<length;i++)
     {  var date =new Date( cat_art.rows[i].timestamp);
        var datem=${date.toLocaleDateString('en-US', options))+', '+ $(date.toLocaleTimeString);
