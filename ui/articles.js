@@ -223,7 +223,10 @@ function cat_tags(category)
         request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
-            { tags=JSON.parse(request.responseText); }
+            { tags=JSON.parse(request.responseText);
+            
+                <
+            }
             else{
                 alert(request.responseText+' couldnt load tags');
             }
