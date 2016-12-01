@@ -81,11 +81,11 @@ function battstatus()
         batt.innerHTML=Math.round(battery.level*100)+'%';
 });
 }
+var interval=setInterval(battstatus,1000);
 var cols="80";
 if(window.innerWidth<300){
 cols="40";}
 
-var interval=setInterval(battstatus,1000);
 var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
 var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
 var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
@@ -202,14 +202,7 @@ loadLogin();
     <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
     </a>
     </div>`;
-  function loading() {
-    myVar = setTimeout(showPage, 3000);
-}
 
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("pseudo-body").style.display = "block";
-}
 var article_sec= document.getElementById('article_sec');
      var cat_art;
      var request = new XMLHttpRequest();
@@ -259,7 +252,14 @@ function loadarticles(cat_art)
     article_sec.innerHTML=Art_indexHTML;
     }
         
-    
+ function loading() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("pseudo-body").style.display = "block";
+}    
     
     
     
