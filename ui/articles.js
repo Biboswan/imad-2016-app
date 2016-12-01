@@ -210,8 +210,7 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("pseudo-body").style.display = "block";
 }
-
-function categorised(){
+var article_sec= document.getElementById('article_sec');
      var cat_art;
      var request = new XMLHttpRequest();
      var category= document.getElementById('category').value;
@@ -249,12 +248,15 @@ function cat_tags(category)
 function loadarticles(cat_art)
 {   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var length=cat_art.rows.length;
+    var temp,var Art_indexHTML='';;
     for(var i=0;i<length;i++)
     {  var date =new Date( cat_art.rows[i].timestamp);
        var datem=${date.toLocaleDateString('en-US', options))+', '+ $(date.toLocaleTimeString);
-       var Art_indexHTML=`<h2>${cat_art.rows[i].title}</h2>
+        temp=`<h2>${cat_art.rows[i].title}</h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
+         Art_indexHTML+=temp;
     }
+    article_sec.innerHTML=Art_indexHTML;
     }
         
     
