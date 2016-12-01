@@ -161,8 +161,25 @@ app.get('/accept-like',function(req,res){
            }
 });
 });
-
-
+app.get('/categorised',function(req,res){
+    pool.query('SELECT "Users".username,"Articles".title FROM "Users","Articles" WHERE "Articles".category=$1 AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.query.category],function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+              
+               res.send(JSON.stringify(result));
+           }
+    });
+});
+  app.get('/cat_tags:category',function(req,res){ 
+ pool.query('SELECT DISTINCT "articles_tag".tag FROM "articles_tag", "Articles" WHERE "Articles".category=$1 AND "Articles".id = "articles_tag".article_id ORDER BY "articles_tag".tag ASC',[req.params.category],function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               res.send(JSON.stringify(result));
+           }
+    });
+});
 
 
 
