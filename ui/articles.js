@@ -238,7 +238,7 @@ function loadarticles(cat_art)
     var temp, Art_indexHTML='',datem,date;
     for(var i=0;i<length;i++)
     {   date =new Date( cat_art.rows[i].timestamp);
-        datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString;
+        datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         temp=`<h2>${cat_art.rows[i].title}</h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
          Art_indexHTML= Art_indexHTML+temp;
