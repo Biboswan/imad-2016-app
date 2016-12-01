@@ -94,6 +94,8 @@ var create_acc=  document.getElementById('create_acc');
             var logout=document.getElementById('logout');
             var user_icon=document.getElementById('user_icon');
             var submit=document.getElementById('login-btn');
+            var add_article=document.getElementById('add_article');
+
              submit.onclick = function(){
             var request2 = new XMLHttpRequest();
         request2.onreadystatechange = function () {
@@ -166,6 +168,7 @@ function loadLoggedInUser(username)
       log .innerHTML='';
       logout.innerHTML=logoutHTML; 
       user_icon.innerHTML='<a href="#"><span class="glyphicon glyphicon-user"></span>Hi '+username+'</a>';
+      add_article.style.display=block;
 }
 function loadUnknownUser()
 {
@@ -173,6 +176,8 @@ function loadUnknownUser()
      user_icon.innerHTML='';
      create_acc.innerHTML=create_accHTML;
      log.innerHTML=loginHTML;
+     submit.innerHTML = 'Login';
+     add_article.style.display=none;
      
 }
 function Logout()
@@ -205,4 +210,38 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("pseudo-body").style.display = "block";
 }
-      
+
+function categorised(){
+     var cat_art;
+     var request = new XMLHttpRequest();
+     var category= document.getElementById('category').value
+     request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            { cat_art=JSON.parse(request.responseText); }
+            else{
+                alert(request.responseText+' couldnt load articles');
+            }
+            }
+           };
+        request.open('GET', '/categorised?category='+category, true);
+        request.send(null);
+}
+ 
+function cat_tags()
+{
+    var category= document.getElementById('category').value
+     request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200)
+            { cat_art=JSON.parse(request.responseText); }
+            else{
+                alert(request.responseText+' couldnt load articles');
+            }
+            }
+           };
+        request.open('GET', '/cat_tags:, true);
+        request.send(null);
+}
+     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      console.log(date.toLocaleDateString('en-US', options));
