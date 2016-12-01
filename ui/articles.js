@@ -95,6 +95,7 @@ var create_acc=  document.getElementById('create_acc');
             var user_icon=document.getElementById('user_icon');
             var submit=document.getElementById('login-btn');
             var add_article=document.getElementById('add_article');
+            var article_sec= document.getElementById('article_sec');
 
              submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -146,22 +147,7 @@ function loadLogin () {
     
 }
 
-/*function myFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
 
-        }
-    }
-}*/
 function loadLoggedInUser(username)
 {
       create_acc.innerHTML='';
@@ -202,68 +188,3 @@ loadLogin();
     <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
     </a>
     </div>`;
-    var article_sec= document.getElementById('article_sec');
-function categorised()
-{
-    var cat_art;
-     var request = new XMLHttpRequest();
-     var category= document.getElementById('category').value;
-     request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200)
-            { cat_art=JSON.parse(request.responseText); 
-               loadarticles(cat_art);
-                cat_tags(category);
-            }
-            else{
-                alert(request.responseText+' couldnt load articles');
-            }
-            }
-           };
-        request.open('GET', '/categorised?category='+category, true);
-        request.send(null);
-}
- 
-function cat_tags(category)
-{
-    var tags;
-        request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200)
-            { tags=JSON.parse(request.responseText); }
-            else{
-                alert(request.responseText+' couldnt load tags');
-            }
-            }
-           };
-        request.open('GET', '/cat_tags?category='+category, true);
-        request.send(null);
-}
-function loadarticles(cat_art)
-{   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    var length=cat_art.rows.length;
-    var temp, Art_indexHTML='',datem,date;
-    for(var i=0;i<length;i++)
-    {   date =new Date( cat_art.rows[i].timestamp);
-        datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString;
-        temp=`<h2>${cat_art.rows[i].title}</h2>
-        <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
-         Art_indexHTML= Art_indexHTML+temp;
-    }
-    article_sec.innerHTML=Art_indexHTML;
-    }
-        
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
