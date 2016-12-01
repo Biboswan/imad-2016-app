@@ -177,7 +177,7 @@ function loadUnknownUser()
      create_acc.innerHTML=create_accHTML;
      log.innerHTML=loginHTML;
      submit.innerHTML = 'Login';
-     add_article.style.display=none;
+     add_article.style.display="none";
      
 }
 function Logout()
