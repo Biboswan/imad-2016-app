@@ -202,9 +202,10 @@ loadLogin();
     <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
     </a>
     </div>`;
-
-var article_sec= document.getElementById('article_sec');
-     var cat_art;
+    var article_sec= document.getElementById('article_sec');
+function categorised()
+{
+    var cat_art;
      var request = new XMLHttpRequest();
      var category= document.getElementById('category').value;
      request.onreadystatechange = function () {
