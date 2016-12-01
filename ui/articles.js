@@ -253,16 +253,7 @@ function loadarticles(cat_art)
     article_sec.innerHTML=Art_indexHTML;
     }
         
- function loading() {
-    myVar = setTimeout(showPage, 3000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("pseudo-body").style.display = "block";
-}    
-    
-    
+ 
     
     
     
