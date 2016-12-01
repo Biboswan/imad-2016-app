@@ -27,6 +27,7 @@ document.getElementById('commonpart').innerHTML=`<div>
       <li><a href="/ui/cs-uni">CSE-United</a></li>
       </ul>
 </li>
+<li><a href="/ui/Artcles">Articles</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li id="create_acc"></li>
