@@ -172,7 +172,7 @@ app.get('/categorised',function(req,res){
     });
 });
   app.get('/cat_tags',function(req,res){ 
- pool.query('SELECT DISTINCT "articles_tag".tag FROM "articles_tag", "Articles" WHERE "Articles".category=$1 AND "Articles".id = "articles_tag".article_id ORDER BY "articles_tag".tag ASC',[req.params.category],function(err,result) {
+ pool.query('SELECT DISTINCT "articles_tag".tag FROM "articles_tag", "Articles" WHERE "Articles".category=$1 AND "Articles".id = "articles_tag".article_id ORDER BY "articles_tag".tag ASC',[req.query.category],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
