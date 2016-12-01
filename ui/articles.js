@@ -146,7 +146,7 @@ function loadLogin () {
     
 }
 
-function myFunction() {
+/*function myFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -161,7 +161,7 @@ function myFunction() {
 
         }
     }
-}
+}*/
 function loadLoggedInUser(username)
 {
       create_acc.innerHTML='';
@@ -214,11 +214,14 @@ function showPage() {
 function categorised(){
      var cat_art;
      var request = new XMLHttpRequest();
-     var category= document.getElementById('category').value
+     var category= document.getElementById('category').value;
      request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
-            { cat_art=JSON.parse(request.responseText); }
+            { cat_art=JSON.parse(request.responseText); 
+               loadarticles(cat_art);
+                cat_tags(category);
+            }
             else{
                 alert(request.responseText+' couldnt load articles');
             }
@@ -228,20 +231,44 @@ function categorised(){
         request.send(null);
 }
  
-function cat_tags()
+function cat_tags(category)
 {
-    var category= document.getElementById('category').value
-     request.onreadystatechange = function () {
+    var tags;
+        request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
-            { cat_art=JSON.parse(request.responseText); }
+            { tags=JSON.parse(request.responseText); }
             else{
                 alert(request.responseText+' couldnt load articles');
             }
             }
            };
-        request.open('GET', '/cat_tags:, true);
+        request.open('GET', '/cat_tags?category='+category, true);
         request.send(null);
 }
-     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      console.log(date.toLocaleDateString('en-US', options));
+function loadarticles(cat_art)
+{   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var length=cat_art.rows.length;
+    for(var i=0;i<length;i++)
+    {
+        var date =new Date( cat_art.rows[i].timestamp);
+        var datem=${date.toLocaleDateString('en-US', options)+', '+ $(date.toLocaleTimeString);
+        <h2>${cat_art.rows[i].title}</h2>
+        <p>Posted by author:{cat_art.rows[i].username} on<small>${datem}</small></p>
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
