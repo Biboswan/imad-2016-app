@@ -233,7 +233,7 @@ app.get('/ui/home', function (req, res) {
   app.get('/ui/p1', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui','p1.png'));});
      
-     app.get('/ui/articlescript',function (req, res) {
+     app.get('/ui/articlescpt',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'articles.js'));});
   
  app.get('/ui/articles',function (req, res) {
