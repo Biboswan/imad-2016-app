@@ -21,7 +21,7 @@
          <div class="center">
           <ul class="list-inline" style="list-style-type:none">
               <li><span class="glyphicon glyphicon-search">Search Articles By :</span></li>
-              <li><input list="category_list" name="category" placeholder="Select Category" onchange=categorised()>
+              <li><input list="category_list" id="category" placeholder="Select Category" onchange=categorised()>
              <datalist id="category_list">
              <option value="exams">
              <option value="festival">
@@ -31,17 +31,19 @@
              <option value="travel">
              </datalist>
              </li>
-             <li><input type="text" id="tag_search" onkeyup="myFunction()" placeholder="Select Tag"></li>
-             <ul id="list_list"></ul>
-             <li><button>New Article</button></li>
+             <li><select name="tags" multiple>
+              <option></option></select></li>
+             <li><button id="add_article">New Article</button></li>
           </ul>
+          <div id="article_sec"></div> 
+          <div id="art_input">
           <input id="art_title" type ="text" placeholder="Enter title">
-          <input list ="category_title" name="category2" placeholder="Select Category">
+          <input list ="category_title" id="category2" placeholder="Select Category">
           <datalist id="category_title">
              <option value="exams">
              <option value="festival">
              <option value="food"> 
-              <option value="sports">
+             <option value="sports">
              <option value="technology">
              <option value="travel">
              </datalist>
@@ -49,12 +51,11 @@
           <textarea id="article_text" rows="5" cols=80 placeholder="Enter your article here..." ></textarea>
 	        <br/>
 	        <button>Add</button>
+	       </div>
          </div>  
-           
 `     <footer id="footer" class="footerbg">
       </footer>
       </div>
-      <script type="text/javascript" src="/ui/main"></script>
       <script type="text/javascript" src="/ui/articlescript"></script>
       </body>
       </html>
