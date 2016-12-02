@@ -184,7 +184,7 @@ app.get('/art_content',function(req,res){
 });
 
 app.post('/art_bysearch',function(req,res){ 
-var word=JSON.parse(req.body);var length=word.length;var i=0;var tags;
+var word=JSON.parse(req.body);var length=word.length;var i=0;var tags='';
 for(i=0;i<length-1;i++)
 {
 tags+=word[i]+',';
