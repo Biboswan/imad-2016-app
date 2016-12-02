@@ -171,15 +171,7 @@ app.get('/categorised',function(req,res){
            }
     });
 });
-  app.get('/cat_tags',function(req,res){ 
- pool.query('SELECT DISTINCT "articles_tag".tag FROM "articles_tag", "Articles" WHERE "Articles".category=$1 AND "Articles".id = "articles_tag".article_id ORDER BY "articles_tag".tag ASC',[req.query.category],function(err,result) {
-        if (err) {
-              res.status(500).send(err.toString());
-           } else {
-               res.send(JSON.stringify(result));
-           }
-    });
-});
+ 
 app.get('/art_content',function(req,res){ 
  pool.query('SELECT "Articles".content  FROM "Articles" WHERE title=$1',[req.query.art_title],
  function(err,result) {
@@ -191,7 +183,21 @@ app.get('/art_content',function(req,res){
     });
 });
 
+app.post('/art_bysearch',function(req,res){ 
+var word[],i=0;
+while(req.body.words[i]!==undefined){
+word[i]=(req.body.words[i]).toLowerCase();i++;}
+pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE IN ($1) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[JSON.stringify(word)],function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+              
+               res.send(JSON.stringify(result));
+           }
+    });
+}); 
 
+    
 var counter =0,x=0;
 
 app.get('/', function (req, res) {
