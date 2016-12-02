@@ -184,10 +184,10 @@ app.get('/art_content',function(req,res){
 });
 
 app.post('/art_bysearch',function(req,res){ 
-var word,i=0;
-console.log(req.body.words[1]);
-while(req.body.words[i]!==undefined){
-word[i]=(req.body.words[i]).toLowerCase();i++;}
+var word=[],i=0;
+console.log(req.body.i);
+while(req.body.i!==undefined){
+word.push((req.body.i).toLowerCase());i++;}
 pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE IN ($1) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[JSON.stringify(word)],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
