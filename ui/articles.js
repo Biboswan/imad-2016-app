@@ -27,7 +27,7 @@ document.getElementById('commonpart').innerHTML=`<div>
       <li><a href="/ui/cs-uni">CSE-United</a></li>
       </ul>
 </li>
-<li><a href="/ui/Artcles">Articles</a></li>
+<li><a href="/ui/Articles">Articles</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li id="create_acc"></li>
@@ -57,23 +57,48 @@ document.getElementById('commonpart').innerHTML=`<div>
     </div>
   </div>
 </div>`;
-  navigator.getBattery().then(function(battery) {
+     navigator.getBattery().then(function(battery) {
          function updateAllBatteryInfo(){
+           updateChargeInfo();
+           updateLevelInfo();
            updateChargingInfo();
-           
+           updateDischargingInfo();
   }
        
   updateAllBatteryInfo();
 
   battery.addEventListener('chargingchange', function(){
-    updateChargingInfo();
+    updateChargeInfo();
   });
-  function updateChargingInfo(){
+  function updateChargeInfo(){
       var status='';
     if(battery.charging)
     { status='charging';}
     else{status='discharging';}
  $('#battery-box').attr('data-original-title',status);
+  }
+
+  battery.addEventListener('levelchange', function(){
+    updateLevelInfo();
+  });
+  function updateLevelInfo(){
+    console.log("Battery level: "
+                + battery.level * 100 + "%");
+  }
+
+  battery.addEventListener('chargingtimechange', function(){
+    updateChargingInfo();
+  });
+  function updateChargingInfo(){
+    console.log("Battery charging time: "
+                 + battery.chargingTime + " seconds");
+}
+battery.addEventListener('dischargingtimechange', function(){
+    updateDischargingInfo();
+  });
+  function updateDischargingInfo(){
+    console.log("Battery discharging time: "
+                 + battery.dischargingTime + " seconds");
   }
 
 });
