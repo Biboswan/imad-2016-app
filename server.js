@@ -185,12 +185,10 @@ app.get('/art_content',function(req,res){
 
 app.post('/art_bysearch',function(req,res){ 
 var word=[],i=0;
-console.log(req.body.i);
-console.log(req.body.words.i);
-console.log(req.body)
+
 /*while(req.body.i!==undefined){
 word.push((req.body.i).toLowerCase());i++;}*/
-pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag IN ($1) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.body],function(err,result) {
+pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag IN ($1) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[?::JSON.parse(req.body)],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
