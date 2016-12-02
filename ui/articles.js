@@ -260,17 +260,37 @@ function cat_tags(category)
 function loadarticles(cat_art)
 {   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var length=cat_art.rows.length;
-    var temp, Art_indexHTML='',datem,date;
+    var temp, Art_indexHTML='',datem,date,art_title;
+    article_sec.innerHTML="";
     for(var i=0;i<length;i++)
     {   date =new Date( cat_art.rows[i].timestamp);
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
-        temp=`<h2>${cat_art.rows[i].title}</h2>
+        art_title=cat_art.rows[i].title;
+        temp=`<h2><a href="#" onclick=getcontent(${art_title},${cat_art.rows[i].username},${datem})>${art_title}</a></h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
    
     }
+    function getcontent(art_title,author,date)
+    { 
         
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200){
+              article_sec.innerHTML=`<h2>${art_title}<h2> <p>Posted by author:${author}on<small>${date}</small></p>
+             </br><article>{$request.responseText}</article>`;
+            }
+            else{
+                alert("Server error,Sorry couldn't fetch content !");
+                }
+    }
+        };
+        request.open('GET', '/'+art_title, true);
+        request.send(null);
+}
+
 
 function loading() {
     myVar = setTimeout(showPage, 3000);
