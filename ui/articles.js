@@ -59,46 +59,21 @@ document.getElementById('commonpart').innerHTML=`<div>
 </div>`;
   navigator.getBattery().then(function(battery) {
          function updateAllBatteryInfo(){
-           updateChargeInfo();
-           updateLevelInfo();
            updateChargingInfo();
-           updateDischargingInfo();
+           
   }
        
   updateAllBatteryInfo();
 
   battery.addEventListener('chargingchange', function(){
-    updateChargeInfo();
+    updateChargingInfo();
   });
-  function updateChargeInfo(){
+  function updateChargingInfo(){
       var status='';
     if(battery.charging)
     { status='charging';}
     else{status='discharging';}
  $('#battery-box').attr('data-original-title',status);
-  }
-
-  battery.addEventListener('levelchange', function(){
-    updateLevelInfo();
-  });
-  function updateLevelInfo(){
-    console.log("Battery level: "
-                + battery.level * 100 + "%");
-  }
-
-  battery.addEventListener('chargingtimechange', function(){
-    updateChargingInfo();
-  });
-  function updateChargingInfo(){
-    console.log("Battery charging time: "
-                 + battery.chargingTime + " seconds");
-}
-battery.addEventListener('dischargingtimechange', function(){
-    updateDischargingInfo();
-  });
-  function updateDischargingInfo(){
-    console.log("Battery discharging time: "
-                 + battery.dischargingTime + " seconds");
   }
 
 });
@@ -248,10 +223,7 @@ function cat_tags(category)
         request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200)
-            { tags=JSON.parse(request.responseText);
-            
-                <
-            }
+            { tags=JSON.parse(request.responseText); }
             else{
                 alert(request.responseText+' couldnt load tags');
             }
@@ -269,7 +241,7 @@ function loadarticles(cat_art)
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         temp=`<h2>${cat_art.rows[i].title}</h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
-         Art_indexHTML+=temp;
+         Art_indexHTML= Art_indexHTML+temp;
     }
     article_sec.innerHTML=Art_indexHTML;
     }
@@ -283,5 +255,3 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("pseudo-body").style.display = "block";
 }
-      
-    
