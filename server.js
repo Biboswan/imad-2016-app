@@ -181,7 +181,7 @@ app.get('/categorised',function(req,res){
     });
 });
 
-app.get('/:art_title',,function(req,res){ 
+app.get('/:art_title',function(req,res){ 
  pool.query('SELECT content FROM "Articles" WHERE title=$1',[req.params.art_title],
  function(err,result) {
         if (err) {
