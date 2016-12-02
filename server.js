@@ -181,7 +181,16 @@ app.get('/categorised',function(req,res){
     });
 });
 
-
+app'get('/:art_title',,function(req,res){ 
+ pool.query('SELECT content FROM "Articles" WHERE title=$1',[req.params.art_title],
+ function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               res.send(result.rows[0].content);
+           }
+    });
+});
 
 var counter =0,x=0;
 
