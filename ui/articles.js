@@ -242,21 +242,7 @@ loadLogin();
         request.send(null);
 }
  
-function cat_tags(category)
-{
-    var tags;
-        request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200)
-            { tags=JSON.parse(request.responseText); }
-            else{
-                alert(request.responseText+' couldnt load tags');
-            }
-            }
-           };
-        request.open('GET', '/cat_tags?category='+category, true);
-        request.send(null);
-}
+
 function loadarticles(cat_art)
 {   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var length=cat_art.rows.length;
