@@ -127,8 +127,9 @@ var create_acc=  document.getElementById('create_acc');
             var logout=document.getElementById('logout');
             var user_icon=document.getElementById('user_icon');
             var submit=document.getElementById('login-btn');
-            var add_article=document.getElementById('add_article');
+            var add_article=document.getElementById('addart_butn');
             var article_sec= document.getElementById('article_sec');
+            var search_butn= document.getElementById('search_butn');
 
              submit.onclick = function(){
             var request2 = new XMLHttpRequest();
@@ -252,7 +253,7 @@ function loadarticles(cat_art)
     {   date =new Date( cat_art.rows[i].timestamp);
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         art_title=cat_art.rows[i].title;
-        temp=`<h2><a href="#" onclick=getcontent(${art_title},${cat_art.rows[i].username},${datem})>${art_title}</a></h2>
+        temp=`<h2><a href="#" onclick=getcontent(${art_title},${cat_art.rows[i].username},datem)>${art_title}</a></h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
@@ -276,6 +277,26 @@ function loadarticles(cat_art)
         request.open('GET', '/art_content?art_title='+art_title, true);
         request.send(null);
 }
+
+search_butn.onclick=function()
+  {
+      var search_txt=document.getElementById('search_txt').value;
+      var words=search_txt.split(" ");
+      var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200){
+                loadarticles(JSON.parse(request.responseText));
+            }
+            else{
+                alert(request.responseText+' couldnt load articles');
+            }
+        }
+        };
+     request.open('POST', '/art_bysearch, true);
+     request.setRequestHeader('Content-Type', 'application/json');
+     request.send(JSON.stringify(JSON.stringify(words));  
+  }  
 
 
 function loading() {
