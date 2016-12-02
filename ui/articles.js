@@ -295,6 +295,7 @@ search_butn.onclick=function()
         request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200){
+                console.log(request.responseText);
                 loadarticles(JSON.parse(request.responseText));
             }
             else{
