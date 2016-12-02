@@ -186,6 +186,7 @@ app.get('/art_content',function(req,res){
 app.post('/art_bysearch',function(req,res){ 
 var word=[],i=0;
 console.log(req.body.i);
+console.log(req.body.words.i);
 console.log(req.body)
 /*while(req.body.i!==undefined){
 word.push((req.body.i).toLowerCase());i++;}*/
