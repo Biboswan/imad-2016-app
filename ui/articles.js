@@ -1,3 +1,11 @@
+function loading() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("pseudo-body").style.display = "block";
+}
 document.getElementById('commonpart').innerHTML=`<div>
             <ul class="list-inline">
        <li><img id='bibo' src="/ui/me1" class="fram img-medium"/></li>
@@ -299,11 +307,3 @@ search_butn.onclick=function()
   }  
 
 
-function loading() {
-    myVar = setTimeout(showPage, 3000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("pseudo-body").style.display = "block";
-}
