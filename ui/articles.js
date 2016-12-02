@@ -273,7 +273,7 @@ function loadarticles(cat_art)
                 }
     }
         };
-        request.open('GET', '/'+art_title, true);
+        request.open('GET', '/ui/'+art_title, true);
         request.send(null);
 }
 
