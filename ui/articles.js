@@ -231,7 +231,7 @@ loadLogin();
             if (request.status === 200)
             { cat_art=JSON.parse(request.responseText); 
                loadarticles(cat_art);
-                cat_tags(category);
+        
             }
             else{
                 alert(request.responseText+' couldnt load articles');
@@ -252,7 +252,7 @@ function loadarticles(cat_art)
     {   date =new Date( cat_art.rows[i].timestamp);
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         art_title=cat_art.rows[i].title;
-        temp=`<h2><a href="#" onclick=getcontent(${art_title},${cat_art.rows[i].username},${datem})>${art_title})</a></h2>
+        temp=`<h2><a href="#" onclick=getcontent(${art_title},${cat_art.rows[i].username},${datem});>${art_title}</a></h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
