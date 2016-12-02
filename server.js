@@ -180,8 +180,8 @@ app.get('/categorised',function(req,res){
            }
     });
 });
-app.get('/ui/:art_title',function(req,res){ 
- pool.query('SELECT "Articles".content  FROM "Articles" WHERE title=$1',[req.params.art_title],
+app.get('/art_content',function(req,res){ 
+ pool.query('SELECT "Articles".content  FROM "Articles" WHERE title=$1',[req.query.art_title],
  function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
