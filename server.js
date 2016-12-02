@@ -187,7 +187,8 @@ app.post('/art_bysearch',function(req,res){
 var word=JSON.parse(req.body);var length=word.length;var i=0;var tags='';
 for(i=0;i<length-1;i++)
 {
-tags+=word[i]+',';
+    
+tags+=word[i]+',';console.log(tags);
 }
 tags+=word[i];
 pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag IN ($1) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[tags],function(err,result) {
