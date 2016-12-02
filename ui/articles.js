@@ -269,7 +269,7 @@ function loadarticles(cat_art)
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         temp=`<h2>${cat_art.rows[i].title}</h2>
         <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
-         Art_indexHTML= Art_indexHTML+temp;
+         Art_indexHTML+=temp;
     }
     article_sec.innerHTML=Art_indexHTML;
     }
