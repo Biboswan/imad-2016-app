@@ -33,10 +33,10 @@
              </li>
              <li>or <input id="search_txt" type="search" maxlength="40" placeholder="add a description(max 40 characters)">
              </li><input id="search_butn" type="submit" value="search">
-             <li id="addart_butn" style="float:right"><button onclick=Submit_article()>Add Article</button></li>
+             <li id="addart_butn" style="float:right"><button onclick=New_art()>Add Article</button></li>
           </ul>
           <div id="article_sec"></div> 
-          <div id="art_input" style>
+          <div id="art_input" style="display:none">
           <input id="art_title" type ="text" placeholder="Enter title">
           <input list ="category_title" id="category2" placeholder="Select Category">
           <datalist id="category_title">
@@ -48,9 +48,9 @@
              <option value="travel">
              </datalist>
              <br/>
-          <textarea id="article_text" rows="5" cols=80 placeholder="Enter your article here..." ></textarea>
+          <textarea id="article_text" rows="5" cols=80 placeholder="Enter your article here using max 5 tags using #" ></textarea>
 	        <br/>
-	        <button>Add</button>
+	        <button id="Submit_article">Add</button>
 	       </div>
          </div>  
 `     <footer id="footer" class="footerbg">
