@@ -162,7 +162,7 @@ app.get('/accept-like',function(req,res){
 });
 });
 app.get('/categorised',function(req,res){
-    pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles" WHERE "Articles".category=$1 AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.query.category],function(err,result) {
+    pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp,"Articles".content FROM "Users","Articles" WHERE "Articles".category=$1 AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.query.category],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
@@ -172,22 +172,13 @@ app.get('/categorised',function(req,res){
     });
 });
  
-app.get('/art_content',function(req,res){ 
- pool.query('SELECT "Articles".content  FROM "Articles" WHERE title=$1',[req.query.art_title],
- function(err,result) {
-        if (err) {
-              res.status(500).send(err.toString());
-           } else {
-               res.send((result.rows[0].content).toString());
-           }
-    });
-});
+
 
 app.post('/art_bysearch',function(req,res){ 
 var word=JSON.parse(req.body.words),index=word.length-1,wordlowr=[];
 while(index!==-1){
 wordlowr.push(word[index--].toLowerCase());}
-pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[wordlowr],function(err,result) {
+pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timestamp,"Articles".content FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[wordlowr],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
