@@ -197,7 +197,7 @@ function loadLoggedInUser(username)
       log .innerHTML='';
       logout.innerHTML=logoutHTML; 
       user_icon.innerHTML='<a href="#"><span class="glyphicon glyphicon-user"></span>Hi '+username+'</a>';
-      add_article.style.display=block;
+      add_article.style.display="block";
 }
 function loadUnknownUser()
 {
@@ -293,4 +293,10 @@ search_butn.onclick=function()
      
   }  
 
+Submit_article()
+{
+    
+article_sec.innerHTML='';
+
+}
 
