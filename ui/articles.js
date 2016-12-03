@@ -306,6 +306,7 @@ document.getElementById('Submit_article').onclick= function()
 var title=xssFilters.inHTMLComment(document.getElementById('art_title').value);
 var category=document.getElementById('category2').value;
 var article_text=xssFilters.inHTMLComment(document.getElementById('article_text').value);
+var content= article_text.replace(/#/g, " ");
 var words= article_text.split(" ");
 var tags=[],i,c=0;
 for(i=0;i<words.length;i++)
@@ -332,7 +333,7 @@ break;
         };
         request.open('POST', '/submit_art', true);
      request.setRequestHeader('Content-Type', 'application/json');
-     request.send(JSON.stringify({title:title,category:category,article_text:article_text,tags:JSON.stringify(tags)}));
+     request.send(JSON.stringify({title:title,category:category,content:content,tags:JSON.stringify(tags)}));
 }
 }
             
