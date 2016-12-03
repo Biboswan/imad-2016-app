@@ -195,7 +195,7 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
        var tags=JSON.parse(req.body.tags),index=tags.length-1,tagslowr=[];
        while(index!==-1){
        tagslowr.push(tags[index--].toLowerCase())};
-       pool.query('INSERT into "Articles"(author_id,title,content,category) VALUES($1,$2,$3,$4) RETURNING id',[req.session.auth.userId,title,article_text,category],function(err,result) {
+       pool.query('INSERT into "Articles"(author_id,title,content,category,timestamp) VALUES($1,$2,$3,$4,$5) RETURNING id',[req.session.auth.userId,title,article_text,category,current_timestamp],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
