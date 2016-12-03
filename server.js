@@ -191,11 +191,11 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
    app.post('/submit_art', function(req,res){ 
        var title=req.body.title;
        var category=req.body.category;
-       var article_text=req.body.article_text;
+       var content=req.body.content;
        var tags=JSON.parse(req.body.tags),index=tags.length-1,tagslowr=[];
        while(index!==-1){
        tagslowr.push(tags[index--].toLowerCase())};
-       pool.query('INSERT into "Articles"(author_id,title,content,category,timestamp) VALUES($1,$2,$3,$4,now()) RETURNING id',[req.session.auth.userId,title,article_text,category],function(err,result) {
+       pool.query('INSERT into "Articles"(author_id,title,content,category,timestamp) VALUES($1,$2,$3,$4,now()) RETURNING id',[req.session.auth.userId,title,content,category],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
