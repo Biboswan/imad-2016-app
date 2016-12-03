@@ -299,6 +299,7 @@ search_butn.onclick=function()
                 loadarticles(JSON.parse(request.responseText));
             }
             else{
+                console.log((JSON.parse(request.responseText)).rows[0].title);
                 alert(request.responseText+' couldnt load articles');
             }
         }
