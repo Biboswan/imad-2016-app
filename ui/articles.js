@@ -241,6 +241,7 @@ loadLogin();
             if (request.status === 200)
             { cat_art=JSON.parse(request.responseText); 
                loadarticles(cat_art);
+               art_input.style.display="none";
         
             }
             else{
@@ -272,7 +273,7 @@ function loadarticles(cat_art)
 
 search_butn.onclick=function()
   {
-      var search_txt=document.getElementById('search_txt').value;
+      var search_txt=xssFilters.inHTMLComment(document.getElementById('search_txt').value);
       var words=search_txt.split(" ");
       var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
@@ -280,6 +281,7 @@ search_butn.onclick=function()
             if (request.status === 200){
                 console.log(request.responseText);
                 loadarticles(JSON.parse(request.responseText));
+                 art_input.style.display="none";
             }
             else{
                 console.log((JSON.parse(request.responseText)).rows[0].title);
@@ -293,10 +295,47 @@ search_butn.onclick=function()
      
   }  
 
-Submit_article()
-{
-    
-article_sec.innerHTML='';
 
+   function New_art()
+   {
+   article_sec.innerHTML='';
+var art_input=document.getElementById('art_input');
+art_input.style.display="block";
+document.getElementById('Submit_article').onclick= function()
+{
+var title=xssFilters.inHTMLComment(document.getElementById('art_title').value);
+var category=document.getElementById('category2').value;
+var article_text=xssFilters.inHTMLComment(document.getElementById('article_text').value);
+var words= article_text.split("#");
+var tags=[],i;
+for(i=0;i<words.length;i++)
+{
+if(words[i].startsWith("#"))
+{
+    tags[i]=words[i];
 }
+if(i===5){
+break;
+}
+}
+         var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200){
+                alert('Article sucessfully submitted');
+                art_input.style.display="none";
+            }
+            else{
+                alert(' Sorry ! ur article couldnt be  submitted.Try later on!');
+            }
+        }
+        };
+        request.open('POST', '/submit_art', true);
+     request.setRequestHeader('Content-Type', 'application/json');
+     request.send(JSON.stringify({title:title,category:category,article_text:article_text,tags:JSON.stringify(tags)}));
+}
+}
+            
+
+
 
