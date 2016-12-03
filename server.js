@@ -185,16 +185,7 @@ app.get('/art_content',function(req,res){
 
 app.post('/art_bysearch',function(req,res){ 
 var word=JSON.parse(req.body.words);
-console.log(word);console.log(word[1]);
-var length=word.length;
-var i=0;var tags='',param='';
-for(i=0;i<length-1;i++)
-{
-    
-tags+=word[i]+',';console.log(tags);
-}
-tags+=word[i];console.log(tags);
-pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[word],function(err,result) {
+pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[word],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
