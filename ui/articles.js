@@ -312,7 +312,7 @@ for(i=0;i<words.length;i++)
 {
 if(words[i].startsWith("#"))
 {
-    tags[i]=words[i];c++
+    tags[c]=words[i];c++
 }
 if(c===5){
 break;
