@@ -262,30 +262,13 @@ function loadarticles(cat_art)
     {   date =new Date( cat_art.rows[i].timestamp);
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         art_title=cat_art.rows[i].title;
-        temp=`<h2><a onclick=getcontent(art_title,cat_art.rows[i].username,datem)>${art_title}</a></h2>
-        <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br>`
+        temp=`<h2>${art_title}</h2>
+        <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br><article>${cat_art.rows[i].content}</article></br>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
    
     }
-    function getcontent(art_title,author,date)
-    { 
-        
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200){
-              article_sec.innerHTML=`<h2>${art_title}<h2> <p>Posted by author:${author}on<small>${date}</small></p>
-             </br><article>${request.responseText}</article>`;
-            }
-            else{
-                alert("Server error,Sorry couldn't fetch content !");
-                }
-    }
-        };
-        request.open('GET', '/art_content?art_title='+art_title, true);
-        request.send(null);
-}
+   
 
 search_butn.onclick=function()
   {
