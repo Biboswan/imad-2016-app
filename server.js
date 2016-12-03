@@ -188,7 +188,18 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
     });
 }); 
 
-    
+   app.post('/submit_art', function(req,res){ 
+       var title=req.body.title;
+       var category=req.body.category;
+       var article_text=req.body.article_text;
+       var tags=JSON.parse(req.body.tags),index=tags.length-1,tagslowr=[];
+       while(index!==-1){
+       tagslowr.push(tags[index--].toLowerCase());}
+       pool.query('')
+       
+       
+       
+   });
 var counter =0,x=0;
 
 app.get('/', function (req, res) {
