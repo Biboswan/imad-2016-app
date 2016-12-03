@@ -305,7 +305,7 @@ search_butn.onclick=function()
         };
      request.open('POST', '/art_bysearch', true);
      request.setRequestHeader('Content-Type', 'application/json');
-     request.send(JSON.stringify({words:words}));  
+     request.send(JSON.stringify({words:JSON.stringify(words)}));  
   }  
 
 
