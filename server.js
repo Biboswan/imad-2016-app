@@ -199,16 +199,18 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
         if (err) {
               res.status(500).send(err.toString());
            } else {
-               var art_id=result.rows[0].id;
-               pool.query('INSERT into "articles_tag" VALUES($1,$2::text[])',[art_id,tagslowr],function(err,result) {
+               var art_id=result.rows[0].id;var i,length=tagslowr.length;
+               for(i=0;i<length;i++){
+               pool.query('INSERT into "articles_tag" VALUES($1,$2)',[art_id,tagslowr[i]],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
-           } else {
-              
+           } 
+           });
+               }
                res.send('Article submitted');
            }
                });
-           }
+           
        });
        
        
