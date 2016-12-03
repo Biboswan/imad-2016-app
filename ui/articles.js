@@ -307,14 +307,14 @@ var title=xssFilters.inHTMLComment(document.getElementById('art_title').value);
 var category=document.getElementById('category2').value;
 var article_text=xssFilters.inHTMLComment(document.getElementById('article_text').value);
 var words= article_text.split(" ");
-var tags=[],i;
+var tags=[],i,c=0;
 for(i=0;i<words.length;i++)
 {
 if(words[i].startsWith("#"))
 {
-    tags[i]=words[i];
+    tags[i]=words[i];c++
 }
-if(i===5){
+if(c===5){
 break;
 }
 }
