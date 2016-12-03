@@ -214,7 +214,6 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
        });
        
        
-   });
 var counter =0,x=0;
 
 app.get('/', function (req, res) {
