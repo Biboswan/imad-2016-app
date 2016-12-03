@@ -314,7 +314,7 @@ if(words[i].startsWith("#"))
 {
     tags[c]=words[i];c++
 }
-if(c===4){
+if(c===5){
 break;
 }
 }
