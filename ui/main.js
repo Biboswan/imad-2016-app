@@ -335,10 +335,11 @@ function likeclick()
   loadComments();
   
    document.getElementById('footer').innerHTML=`<div class ="center follow" >
-        follow me on
+   <ul style="list-inline">
+       <li> Add/follow me on
         <a href="https://www.facebook.com/Biboswan" style="margin-top:8px;">
-    <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
-    </a>
+    <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/></a></li>
+    <li><i class="fa fa-github-square" style="font-size:36px"></i></li></ul>
     </div>`;
   function loading() {
     myVar = setTimeout(showPage, 3000);
