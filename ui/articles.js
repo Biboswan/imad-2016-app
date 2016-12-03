@@ -306,7 +306,7 @@ document.getElementById('Submit_article').onclick= function()
 var title=xssFilters.inHTMLComment(document.getElementById('art_title').value);
 var category=document.getElementById('category2').value;
 var article_text=xssFilters.inHTMLComment(document.getElementById('article_text').value);
-var words= article_text.split("#");
+var words= article_text.split(" ");
 var tags=[],i;
 for(i=0;i<words.length;i++)
 {
