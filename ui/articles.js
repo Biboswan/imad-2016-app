@@ -226,10 +226,11 @@ function Logout()
 }
 loadLogin();
    document.getElementById('footer').innerHTML=`<div class ="center follow" >
-        follow me on
+   <ul class="list-inline">
+       <li> Add/follow me on
         <a href="https://www.facebook.com/Biboswan" style="margin-top:8px;">
-    <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/>
-    </a>
+    <img src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Social-Network-Facebook-icon.png" style="height:30px;"/></a></li>
+    <li>Source at<a href="https://github.com/Biboswan/imad-2016-app"><i class="fa fa-github-square" style="font-size:36px"></i></a></li></ul>
     </div>`;
     function categorised()
 {
