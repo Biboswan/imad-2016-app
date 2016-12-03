@@ -312,7 +312,7 @@ for(i=0;i<words.length;i++)
 {
 if(words[i].startsWith("#"))
 {
-    tags[c]=words[i];c++
+    tags[c]=words[i].substring(1);c++
 }
 if(c===5){
 break;
@@ -326,7 +326,7 @@ break;
                 art_input.style.display="none";
             }
             else{
-                alert(' Sorry ! ur article couldnt be  submitted.Try later on!');
+                alert(request.responseText+'Sorry ! ur article couldnt be  submitted.Try later on!');
             }
         }
         };
