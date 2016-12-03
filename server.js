@@ -194,9 +194,22 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
        var article_text=req.body.article_text;
        var tags=JSON.parse(req.body.tags),index=tags.length-1,tagslowr=[];
        while(index!==-1){
-       tagslowr.push(tags[index--].toLowerCase());}
-       pool.query('')
-       
+       tagslowr.push(tags[index--].toLowerCase())};
+       pool.query('INSERT into "Articles"(author_id,title,content,category) VALUES($1,$2,$3,$4) RETURNING id',[req.session.auth.userId,title,article_text,category],function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+               var art_id=result.rows[0].id;
+               pool.query('INSERT into "articles_tag" VALUES($1,$2::text[])',[art_id,tagslowr],function(err,result) {
+        if (err) {
+              res.status(500).send(err.toString());
+           } else {
+              
+               res.send('Article submitted');
+           }
+               });
+           }
+       });
        
        
    });
