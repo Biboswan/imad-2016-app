@@ -184,8 +184,10 @@ app.get('/art_content',function(req,res){
 });
 
 app.post('/art_bysearch',function(req,res){ 
-var word=JSON.parse(req.body.words);
-pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[word],function(err,result) {
+var word=JSON.parse(req.body.words),index=word.length-1,wordlowr=[];
+while(index!==-1){
+wordlowr.push(word[index--].toLowerCase());}
+pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timestamp FROM "Users","Articles","articles_tag" WHERE "articles_tag".tag =ANY($1::text[]) AND "articles_tag".article_id="Articles".id AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[wordlowr],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
