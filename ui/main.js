@@ -43,7 +43,7 @@ document.getElementById('commonpart').innerHTML=`<div>
    <div class="modal-content">
        <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Login to comment/like/much more</h4>
+        <h4 class="modal-title">Login to comment/like/add articles..</h4>
       </div>
       <div class="modal-body">
           <form>
