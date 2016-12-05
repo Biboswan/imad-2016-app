@@ -4,5 +4,29 @@
    <title>weather.api</title> 
 </head>
 <body>
+    <input list="citylist" id="city" type="search" onkeypress=getlocationkey()>
+   <datalist id="citylist"></datalist>
+
+    
+    <script>
+        function getlocationkey(){
+            var city=document.getElementById('city');
+            var citylist=document.getElementById('citylist');
+            citylist.innerHTML='';
+            var cname = city.value;
+            $.ajax({
+  url:"'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q='+cname+'&apikey=8AWZdkoPjUG3LSzuN98uqMGelds7lw8E'",
+  dataType: 'jsonp',
+  success: function(data){
+      var i,length=data.rows.length;
+      for(i=0;i<length;i++)
+      {
+      citylist.innerHTML+=`<option>${data.rows[i].LocalizedName}<option>';
+      }
+            
+        }
+            });
+            }
+    </script>
 </body>
 </html>
