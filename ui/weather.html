@@ -22,6 +22,7 @@
             citylist.innerHTML='';
             var cname = city.value;
             $.ajax({
+                type:"GET",
   url:"'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q='+cname+'&apikey=8AWZdkoPjUG3LSzuN98uqMGelds7lw8E'",
   dataType: 'jsonp',
   success: function(data){
@@ -34,13 +35,7 @@
         }
             });
             }
-            $.ajaxPrefilter( function (options) {
-  if (options.crossDomain && jQuery.support.cors) {
-    var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-    options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-    //options.url = "http://cors.corsproxy.io/url=" + options.url;
-  }
-});
+           
     </script>
 </body>
 </html>
