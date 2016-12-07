@@ -255,7 +255,7 @@ function commSubmit(){
 }
 function AppendComment(username,date,commtext)
 {
-          username=username+' ';
+          username=xssFilters.inHTMLData(username+' ');
           var commentsHTML=`<div class="media">
            <div class="media-left">
            <div class="media-body">
