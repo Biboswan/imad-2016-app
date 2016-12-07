@@ -265,10 +265,10 @@ function loadarticles(cat_art)
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         art_title=cat_art.rows[i].title;
         temp=`<h2>${art_title}</h2>
-        <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br><article>${cat_art.rows[i].content}</article></br>`
+        <p>Posted by author:${ xssFilters.inHTMLData(cat_art.rows[i].username)} on<small>${datem}</small></p></br><article>${cat_art.rows[i].content}</article></br>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
-   
+   xssFilters.inHTMLData
     }
    
 
