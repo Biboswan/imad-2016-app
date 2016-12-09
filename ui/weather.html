@@ -90,7 +90,11 @@
           }
     </script>
 </head>
-<body>
+<body onload=loading() >
+         <img id="loader" src="/logoB" class="mg-circle img-responsive"/>
+         <div id="pseudo-body">
+        <div id="commonpart">
+           </div>
     <input list="citylist" id="city" type="search" onkeyup=getlocationkey()>
    <datalist id="citylist"></datalist>
    <input type=submit class="btn btn-warning" value=submit onclick=getweather()>
@@ -107,5 +111,22 @@
    <li id="PrecipitationSummary.Past24Hours"></li>
    </ul>
    </div>
+   <div id="comm">
+	   </div>
+	   <ul class="list-inline">
+	   <li id="combutn">
+	   </li>
+	   <li id='likebutn'></li>
+	   </ul>
+	   <div class="container">
+	       <h2>Comments</h2>
+	       <div id="comment-list">
+	       </div>
+	   </div>
+    
+   `<footer id="footer" class="footerbg">
+      </footer>
+   </div>
+   <script type="text/javascript" src="/ui/main"></script>
 </body>
 </html>
