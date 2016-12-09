@@ -20,7 +20,7 @@
             crossOrigin: true
             });
 
-$.getJSON("http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=kol&apikey=8AWZdkoPjUG3LSzuN98uqMGelds7lw8E&details=true&language=es",null,function(data){
+$.getJSON("http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=kol&apikey= &details=true&language=es",null,function(data){
        var datam=JSON.parse(data);
       var i,length=datam.rows.length;
       for(i=0;i<length;i++)
