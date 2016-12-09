@@ -275,6 +275,10 @@ app.get('/ui/home', function (req, res) {
   
   app.get('/ui/weather',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'weather.html'));});
+  
+ app.get('/jquery.ajax-cross-origin.min.js',function(req,res){
+     res.sendFile(path.join(_dirname,'','jquery.ajax-cross-origin.min.js'));});
+ 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
