@@ -276,7 +276,7 @@ app.get('/ui/home', function (req, res) {
   app.get('/ui/weather',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'weather.html'));});
   
- app.get('/jquery.ajax-cross-origin.min.js',function(req,res){
+ app.get('/jqueryajaxcrossorigin',function(req,res){
      res.sendFile(path.join(_dirname,'ui','jquery.ajax-cross-origin.min.js'));});
  
 
