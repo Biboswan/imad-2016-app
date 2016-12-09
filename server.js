@@ -213,6 +213,10 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
            
        });
        
+        app.get('/apikey',function(req,res){
+        res.send('8AWZdkoPjUG3LSzuN98uqMGelds7lw8E');
+       });
+       
        
 var counter =0,x=0;
 
