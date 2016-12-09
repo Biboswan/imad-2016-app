@@ -76,14 +76,14 @@
                else{
                 DyoN='Night'
               }
-               document.getElementById('IsDayTime').innerHTML='Day/Night: '+DyoN;
-                document.getElementById('WeatherText').innerHTML='Weather: '+data[0].WeatherText;
-                document.getElementById('Temperature.Metric.Value').innerHTML='Temperature: '+data[0].Temperature.Metric.Value+' C';
-                document.getElementById('DewPoint').innerHTML='DewPoint:'+data[0].DewPoint.Metric.Value+' C';
-                document.getElementById('UVIndexText').innerHTML='UVIndex:'+data[0].UVIndexText;
-                 document.getElementById('Pressure.Metric.Value').innerHTML='Pressue:'+data[0].Pressure.Metric.Value+' mb';
-                 document.getElementById('PressureTendency.LocalizedText').innerHTML='PressureTendency:'+data[0].PressureTendency.LocalizedText;
-                 document.getElementById('PrecipitationSummary.Past24Hours').innerHTML='Precipitation(Past24Hours):'+data[0].PrecipitationSummary.Past24Hours.Metric.Value+' mm';
+               document.getElementById('IsDayTime').innerHTML=  'Day/Night        : '+DyoN;
+               document.getElementById('WeatherText').innerHTML='Weather          : '+data[0].WeatherText;
+  document.getElementById('Temperature.Metric.Value').innerHTML='Temperature      : '+data[0].Temperature.Metric.Value+' C';
+                  document.getElementById('DewPoint').innerHTML='DewPoint         :'+data[0].DewPoint.Metric.Value+' C';
+                document.getElementById('UVIndexText').innerHTML='UVIndex         :'+data[0].UVIndexText;
+      document.getElementById('Pressure.Metric.Value').innerHTML='Pressue         :'+data[0].Pressure.Metric.Value+' mb';
+      document.getElementById('PressureTendency.LocalizedText').innerHTML='PressureTendency:'+data[0].PressureTendency.LocalizedText;
+    document.getElementById('PrecipitationSummary.Past24Hours').innerHTML='Precipitation(Past24Hours):'+data[0].PrecipitationSummary.Past24Hours.Metric.Value+' mm';
 
               }
              });
@@ -95,7 +95,10 @@
          <div id="pseudo-body">
         <div id="commonpart">
            </div>
-    <input list="citylist" id="city" type="search" onkeyup=getlocationkey()>
+           <div  class="center text-big">
+             Well,after knowing about external apis,weather api used by my smartphone influenced me to use one here itself
+           </div>
+    <input list="citylist" id="city" type="search" onkeyup=getlocationkey() placeholder="type a city name">
    <datalist id="citylist"></datalist>
    <input type=submit class="btn btn-warning" value=submit onclick=getweather()>
    <div class="center">
