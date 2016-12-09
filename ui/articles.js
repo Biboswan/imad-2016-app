@@ -37,6 +37,7 @@ document.getElementById('commonpart').innerHTML=`<div>
       </ul>
 </li>
 <li><a href="/ui/Articles">Articles</a></li>
+<li><a href="/ui/weather">Weather</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li id="create_acc"></li>
