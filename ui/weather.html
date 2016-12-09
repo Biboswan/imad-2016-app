@@ -9,33 +9,32 @@
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js"></script>
-</head>
-<body>
-    <input list="citylist" id="city" type="search" onkeypress=getlocationkey()>
-   <datalist id="citylist"></datalist>
-
-    
-    <script>
+         <script type="text/javascript" src="/js/jquery.ajax-cross-origin.min.js"></script>
+            <script type="text/javascript">
         function getlocationkey(){
             var city=document.getElementById('city');
             var citylist=document.getElementById('citylist');
             citylist.innerHTML='';
-            var cname = city.value;
-            $.ajax({
-                type:"GET",
-  url:"'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q='+cname+'&apikey=8AWZdkoPjUG3LSzuN98uqMGelds7lw8E'",
-  dataType: 'jsonp',
-  success: function(data){
-      var i,length=data.rows.length;
+            var cname = city.value;console.log(cname);
+            $.ajaxSetup({
+            crossOrigin: true
+            });
+
+$.getJSON("http://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=kol&apikey=8AWZdkoPjUG3LSzuN98uqMGelds7lw8E&details=true&language=es",null,function(data){
+       var datam=JSON.parse(data);
+      var i,length=datam.rows.length;
       for(i=0;i<length;i++)
       {
-      citylist.innerHTML+=`<option>${data.rows[i].LocalizedName}<option>`;
+      citylist.innerHTML+=`<option>${datam.rows[i].LocalizedName}<option>`;
       }
             
-        }
-            });
-            }
+        });
+};
            
     </script>
+</head>
+<body>
+    <input list="citylist" id="city" type="search" onkeypress=getlocationkey()>
+   <datalist id="citylist"></datalist>
 </body>
 </html>
