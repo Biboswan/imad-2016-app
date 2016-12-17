@@ -279,6 +279,10 @@ function loadComments()
             {
                var oldComments=JSON.parse(request.responseText);
                var Comlength=oldComments.rows.length;
+                if(Comlength!==11)
+               {
+                $("#more_com").hide();
+               }
                for(var i=0;i<Comlength;i++)
                {    
                 c++;
