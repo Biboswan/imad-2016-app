@@ -122,9 +122,10 @@ app.post('/submit-comment', function (req, res) {
  }
 });
 });
-app.get('/load-comments',function (req, res){
-    var path=req.query.path;
-    pool.query('SELECT * FROM "'+ path +'"',function (err, result) {
+app.post('/load-comments',function (req, res){
+    var path=req.body.path;
+    var counted=req.body.counted;
+    pool.query('SELECT * FROM "'+ path +'" OFFSET $1 LIMIT 10',[counted],function (err, result) {
              if (err) {
               res.status(500).send(err.toString());
            } else {
