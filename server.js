@@ -125,7 +125,7 @@ app.post('/submit-comment', function (req, res) {
 app.post('/load-comments',function (req, res){
     var path=req.body.path;
     var counted=req.body.counted;
-    pool.query('SELECT * FROM "'+ path +'" OFFSET $1 LIMIT 10',[counted],function (err, result) {
+    pool.query('SELECT * FROM "'+ path +'" OFFSET $1 LIMIT 11',[counted],function (err, result) {
              if (err) {
               res.status(500).send(err.toString());
            } else {
