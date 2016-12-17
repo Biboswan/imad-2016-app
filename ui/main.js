@@ -118,7 +118,7 @@ function battstatus()
 var cols="80";
 if(window.innerWidth<300){
 cols="40";}
-
+var c=0;
 var interval=setInterval(battstatus,1000);
  var path=window.location.pathname;
 var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
@@ -280,9 +280,11 @@ function loadComments()
                var oldComments=JSON.parse(request.responseText);
                var Comlength=oldComments.rows.length;
                for(var i=0;i<Comlength;i++)
-               {
+               {    
+                c++;
                 AppendComment(oldComments.rows[i].username,oldComments.rows[i].date,oldComments.rows[i].comment);
                }
+
                
             } else {
                 alert(this.responseText);
@@ -290,9 +292,10 @@ function loadComments()
         }
         
     };
+        request.open('POST', '/load-comments', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({ path:(window.location.pathname),counted:c}));
     
-    request.open('GET', '/load-comments?path='+window.location.pathname, true);
-    request.send(null);
 }
 function countlikes()
 {
@@ -350,5 +353,10 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("pseudo-body").style.display = "block";
 }
+
+$("#more_com").click(function()
+  {
+    loadComments();
+  });
       
     
