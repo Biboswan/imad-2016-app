@@ -1,6 +1,6 @@
 document.getElementById('body').onload=
 function loading() {
-    myVar = setTimeout(showPage, 3000);
+    setTimeout(showPage, 3000);
 };
 
 function showPage() {
