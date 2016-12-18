@@ -350,7 +350,7 @@ function likeclick()
     <li>Source at<a href="https://github.com/Biboswan/imad-2016-app"><i class="fa fa-github-square" style="font-size:36px"></i></a></li></ul>
     </div>`;
   function loading() {
-    myVar = setTimeout(showPage, 3000);
+    setTimeout(showPage, 3000);
 }
 
 function showPage() {
