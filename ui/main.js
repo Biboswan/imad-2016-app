@@ -121,9 +121,9 @@ cols="40";}
 var c=0;
 var interval=setInterval(battstatus,1000);
  var path=window.location.pathname;
-var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
-var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
-var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
+var create_accHTML='<a href="#"  onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
+var loginHTML='<a data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-log-in"></span>Login</a>';
+var logoutHTML='<a  onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var commHTML =`<textarea id="comment_text" rows="5" cols=${cols} placeholder="Enter your comment here..." style="background:linear-gradient(to right, rgb(194, 230, 234)63%, grey)"></textarea>
 	        <br/>`;
 	        var create_acc=  document.getElementById('create_acc');
