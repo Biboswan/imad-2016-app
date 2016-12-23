@@ -129,9 +129,9 @@ var cols="80";
 if(window.innerWidth<300){
 cols="40";}
 
-var create_accHTML='<a href="#" class="btn btn-info" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
-var loginHTML='<a data-toggle="modal" data-target="#myModal" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Login</a>';
-var logoutHTML='<a class="btn btn-info" onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
+var create_accHTML='<a href="#" onclick=window.open("http://biboswan.imad.hasura-app.io/ui/acc-form")>Create Account</a>';
+var loginHTML='<a data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-log-in"></span>Login</a>';
+var logoutHTML='<a onclick=Logout()><span class="glyphicon glyphicon-log-out"></span>Logout</a>';
 var create_acc=  document.getElementById('create_acc');
             var log=document.getElementById('log');
             var logout=document.getElementById('logout');
