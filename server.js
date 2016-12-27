@@ -291,7 +291,7 @@ app.get('/ui/home', function (req, res) {
    app.get('/ui/weather.js',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'weather.js'));});
   
-  app.get('/articles_img',function(req,res){
+  app.get('/ui/articles_img',function(req,res){
     res.sendFile(path.join(__dirname, 'ui','articles_img.jpg'));});
   
  
