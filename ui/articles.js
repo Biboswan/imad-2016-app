@@ -266,12 +266,28 @@ function loadarticles(cat_art)
         datem=date.toLocaleDateString('en-US', options)+', '+ date.toLocaleTimeString();
         art_title=cat_art.rows[i].title;
         temp=`<h2>${art_title}</h2>
-        <p>Posted by author:${ xssFilters.inHTMLData(cat_art.rows[i].username)} on<small>${datem}</small></p></br><article>${cat_art.rows[i].content}</article></br>`
+        <p>Posted by author:${cat_art.rows[i].username} on<small>${datem}</small></p></br><article>${cat_art.rows[i].content}</article></br>
+        <button  onclick=lik_art("${art_title}")>likes<span id="${art_title}" class="glyphicon glyphicon-thumbs-up">${cat_art.rows[i].likes}</span></button>`
         article_sec.innerHTML= article_sec.innerHTML+temp;
     }
 
     }
    
+   function  lik_art(title)
+   {
+    $.ajax({
+       type:'GET',
+       url:'/lik_art',
+       data:{"title":title},
+       success:function(response){
+        var like =(Number($("#"+title).text())+1)+'';
+        console.log(like);
+        $("#"+title).attr('text',like);
+        },
+       error:function(response){
+        alert(response.responseText);}
+       });
+   }
 
 search_butn.onclick=function()
   {
