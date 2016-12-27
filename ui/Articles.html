@@ -20,8 +20,6 @@
         <div id="commonpart">
            </div>
          <div class="center">
-             <img src='/ui/articles_img' style="height:400px"/>
-          <br/>
           <ul class="list-inline" style="list-style-type:none">
               <li><span class="glyphicon glyphicon-search">Search Articles By :</span></li>
               <li><input list="category_list" id="category" placeholder="Select Category" onchange=categorised()>
@@ -38,6 +36,9 @@
              </li><input id="search_butn" type="submit" value="search">
              <li id="addart_butn" style="float:right"><button onclick=New_art()>Add Article</button></li>
           </ul>
+          <br/>
+          <img src='/articles_img' style="height:340px"/>
+          <br/>
           <div id="article_sec"></div> 
           <div id="art_input" style="display:none">
           <input id="art_title" type ="text" placeholder="Enter title">
