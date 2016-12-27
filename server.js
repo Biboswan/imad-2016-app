@@ -163,7 +163,7 @@ app.get('/accept-like',function(req,res){
 });
 });
 app.get('/categorised',function(req,res){
-    pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp,"Articles".content FROM "Users","Articles" WHERE "Articles".category=$1 AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.query.category],function(err,result) {
+    pool.query('SELECT "Users".username,"Articles".title,"Articles".timestamp,"Articles".content,"Articles".likes FROM "Users","Articles" WHERE "Articles".category=$1 AND "Articles".author_id="Users".id ORDER BY "Articles".timestamp DESC',[req.query.category],function(err,result) {
         if (err) {
               res.status(500).send(err.toString());
            } else {
