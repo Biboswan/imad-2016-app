@@ -280,9 +280,7 @@ function loadarticles(cat_art)
        url:'/lik_art',
        data:{"title":title},
        success:function(response){
-        var like =(Number($("#"+title).text())+1)+'';
-        console.log(like);
-        $("#"+title).attr('text',like);
+        $("#"+title).text(response);
         },
        error:function(response){
         alert(response.responseText);}
