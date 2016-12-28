@@ -228,22 +228,23 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
        
        
         app.get('/lik_art',function(req,res){
-          var title=req.query.title;
+          var arttitle=req.query.title;
           if (req.session && req.session.auth && req.session.auth.userId){
-                pool.query('INSERT into "article_likusers" SELECT id,($1) FROM "Articles" WHERE  "Articles".title='+title+'',[req.session.auth.userId], function (err,result){
+                pool.query('INSERT INTO "article_likusers"(article_id,user_id) SELECT id,$1 FROM "Articles" WHERE "Articles".title=$2',[req.session.auth.userId,arttitle],function (err,result){
             if(err)
             {
-              console.log('ch');
-              res.status(500).send(err.toString());
+              console.log('ch111');
+              res.status(400).send('You have liked already!');
             }
             else
             {
-              pool.query('UPDATE "Articles" SET likes=likes+1 WHERE "Articles".title=($1)',[title],function(err,result1){
+              pool.query('UPDATE "Articles" SET likes=likes+1 WHERE "Articles".title=($1) RETURNING likes',[arttitle],function(err,result1){
                 if(err){
+                  console.log('ch2');
                   res.status(500).send(err.toString());
                 }
                 else{
-                  res.send('liked');
+                  res.send((result1.rows[0].likes).toString());
                 }
               });
               
