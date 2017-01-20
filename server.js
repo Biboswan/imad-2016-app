@@ -18,8 +18,9 @@ var config =
     database:'biboswan',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:'db-biboswan-82495'
-  // process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD
+   // 'db-biboswan-82495'
+  
    
     
 };
