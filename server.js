@@ -6,7 +6,7 @@ app.use(morgan('combined'));
 var Pool=require('pg').Pool;
 const crypto = require('crypto');
 var BodyParser=require('body-parser');
-app.use(BodyParser.json());
+app.use(BodyParser.json()).use(BodyParser.urlencoded());
 var session =require('express-session');
 app.use(session({
     secret: 'someRandomSecretValue',
