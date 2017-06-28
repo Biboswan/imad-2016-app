@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+      <script type="text/javascript" src="/ui/acc"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js"></script>
@@ -21,11 +22,11 @@
     <body>
         <div class="container">
   <h2 class="center">Account Form</h2>
-  <form class="form-horizontal">
+  <form class="form-horizontal"  action="/create-user" method="post" enctype="application/x-www-form-urlencoded">
        <div class="form-group">
            <label class="control-label col-sm-2">Username:</label>
            <div class="col-sm-10">
-               <input id="username" maxlength="12" name="username" type="text" class="form-control" placeholder="XYZ not too long" >
+               <input id="username" name="username" type="text" class="form-control" placeholder="XYZ">
                </div>
                </div>
                <div class="form-group">
@@ -37,7 +38,7 @@
       <div class="form-group">
            <label class="control-label col-sm-2">Full Name:</label>
            <div class="col-sm-10">
-               <input id="name"  name="name" type="text" class="form-control" placeholder="Enter name">
+               <input id="name" name="name" type="text" class="form-control" placeholder="Enter name">
                </div>
                </div>
                 <div class="form-group">
@@ -62,15 +63,16 @@
         <div class="col-sm-3">
   <input  id="sex3" type="radio" name="sex" value="other"> Other</div>
     </div>
-    </form>
+    
       <div class="center">
         <input type="submit" class="btn btn-success" value="SUBMIT" id="register"/>
       </div>
+      </form>
        <div class="center" style="margin-top:12px">
         <button class="btn btn-warning" id="exit">Exit</button>
       </div>
   </div>
-  <script type="text/javascript" src="/ui/acc"></script>
+  
 </body>
 </html>
 
