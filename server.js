@@ -193,9 +193,8 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
            }
     });
 }); 
-
-   app.post('/submit_art', function(req,res){ 
-       var title=req.body.title;
+app.post('/submit_art', function(req,res){ 
+  var title=req.body.title;
        var category=req.body.category;
        var content=req.body.content;
        var tags=JSON.parse(req.body.tags),index=tags.length-1,tagslowr=[];
@@ -219,8 +218,8 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
            
        });
        
-        app.get('/apikey',function(req,res){
-        pool.query('SELECT apikey FROM "Apikey"',function(err,result){
+app.get('/apikey',function(req,res){
+  pool.query('SELECT apikey FROM "Apikey"',function(err,result){
           if(err){
             res.status(500).send(err.toString());
           }
@@ -228,12 +227,12 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
         res.send(result.rows[0].apikey);
       }
     });
-       });
+});
        
        
        
-        app.get('/lik_art',function(req,res){
-          var arttitle=req.query.title;
+app.get('/lik_art',function(req,res){
+  var arttitle=req.query.title;
           if (req.session && req.session.auth && req.session.auth.userId){
                 pool.query('INSERT INTO "article_likusers"(article_id,user_id) SELECT id,$1 FROM "Articles" WHERE "Articles".title=$2',[req.session.auth.userId,arttitle],function (err,result){
             if(err)
@@ -258,7 +257,7 @@ pool.query('SELECT DISTINCT "Users".username,"Articles".title,"Articles".timesta
               else{
           res.status(400).send('Sorry!pls log in to like this article');
         }
-      });
+});
 
 var counter =0,x=0;
 
@@ -310,22 +309,22 @@ app.get('/ui/home', function (req, res) {
   app.get('/ui/p1', function (req, res) {
      res.sendFile(path.join(__dirname, 'ui','p1.png'));});
      
-     app.get('/ui/articlescpt',function (req, res) {
+app.get('/ui/articlescpt',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'articles.js'));});
   
- app.get('/ui/articles',function (req, res) {
+app.get('/ui/articles',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'Articles.html'));});
   
-  app.get('/bplpic',function (req, res) {
+app.get('/bplpic',function (req, res) {
   res.sendFile(path.join(__dirname, '', 'bplpic.JPG'));});
   
-  app.get('/ui/weather',function (req, res) {
+app.get('/ui/weather',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'weather.html'));});
   
-   app.get('/ui/weather.js',function (req, res) {
+app.get('/ui/weather.js',function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'weather.js'));});
   
-  app.get('/ui/articles_img',function(req,res){
+app.get('/ui/articles_img',function(req,res){
     res.sendFile(path.join(__dirname, 'ui','articles_img.jpg'));});
   
  
